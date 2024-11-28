@@ -10,7 +10,8 @@
                 "${file}",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "${fileDirname}\\Task1.cpp"
+                "${fileDirname}\\Array.cpp",
+                "${fileDirname}\\LiveGame.cpp"
             ],
             "options": {
                 "cwd": "${fileDirname}"
