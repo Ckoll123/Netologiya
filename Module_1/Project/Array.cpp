@@ -15,32 +15,26 @@ void fillArray(char** ppArr, int rows, int columns, std::ifstream& iStream)
   int row{rows};
   int column{columns};
 
-  iStream >> row;
-  iStream >> column;
-  if ((row >= rows) || (column >= columns))
-    {std::cout << "Неверный размер массива. Некоторые значения выходят за размер массива" << std::endl;}
+  fillArray(ppArr, rows, columns, '-');
 
-  for (int i = 0; i < rows; i++)
+  while (iStream >> row)
   {
-    for (int j = 0; j < columns; j++)
+    if (iStream >> column)
     {
-      if ((i == row) && (j == column))
+      if ((row >= rows) || (column >= columns))
       {
-        ppArr[i][j] = '*';
-        iStream >> row;
-        iStream >> column;
-
-        if ((row >= rows) || (column >= columns))
-          {std::cout << "Неверный размер массива. Некоторые значения выходят за размер массива" << std::endl;}
+        std::cout << "Неверный размер массива. Некоторые значения выходят за размер массива" << std::endl;
+        continue;
       }
-      else {ppArr[i][j] = '-';}
+
+      ppArr[row][column] = '*';
+    }
+    else
+    {
+      std::cout << "Неверный формат файла. Нет значения столбца для указанной строки. Последняя ячейка отброшена" << std::endl;
+      return;
     }
   }
-
-  int temp{0};
-  iStream >> temp;
-  if(temp) 
-    {std::cout << "Неверный размер массива. Некоторые значения выходят за размер массива" << std::endl;}
 }
 
 
@@ -64,7 +58,7 @@ void fillArray(char** ppArrCopyTo, int rows, int columns, char** ppArrCopyFrom)
 }
 
 
-void printArray(char** pp_arr, const int rows, const int columns)
+void printArray(const char* const* pp_arr, const int rows, const int columns)
 {
   for (int i = 0; i < rows; i++)
   {

@@ -8,7 +8,6 @@
 #include "LiveGame.h"
 
 int main() { 
-
   std::cout << "Игра \"Жизнь\"\n\n";
 
   std::ifstream iFile ("in.txt");
@@ -28,16 +27,16 @@ int main() {
     std::cout << "Не удалось открыть файл" << std::endl;
     std::cout << "Применён стандарный массив 3х3 проинициализированный '-'" << std::endl;
     ppCurrentGen = createDoubleArray(game::rows, game::columns);
-    fillArray(ppCurrentGen, game::rows, game::columns, '-');
+    fillArray(ppCurrentGen, game::rows, game::columns, DeadCell);
   }
   iFile.close();
 
   char** ppPrevGen = createDoubleArray(game::rows, game::columns);
-  fillArray(ppPrevGen, game::rows, game::columns, '-');
+  fillArray(ppPrevGen, game::rows, game::columns, DeadCell);
 
   game::checkForTheEndOfGame(ppCurrentGen, ppPrevGen, game::rows, game::columns);
   game::printGenerationState(ppCurrentGen, game::rows, game::columns);
-  
+
   while(!game::gameOver)
   {
     game::solveForNewGeneration(ppCurrentGen, ppPrevGen, game::rows, game::columns);

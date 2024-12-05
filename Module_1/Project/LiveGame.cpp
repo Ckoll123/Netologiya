@@ -16,9 +16,9 @@ namespace game
     {
       for (int j = 0; j < columns; j++)
       {
-        if (ppOldGeneration[i][j] == '-')
+        if (ppOldGeneration[i][j] == DeadCell)
           {checkDeadCell(ppNewGeneration, ppOldGeneration, i, j);}
-        else if (ppOldGeneration[i][j] == '*')
+        else if (ppOldGeneration[i][j] == AliveCell)
           {checkAliveCell(ppNewGeneration, ppOldGeneration, i, j);}
       }
     }
@@ -27,7 +27,7 @@ namespace game
   }
 
 
-  void checkDeadCell(char** const ppRealArray, char** ppTempArray, const int linePosition, const int columnPosition)
+  void checkDeadCell(char** ppRealArray, char** ppTempArray, const int linePosition, const int columnPosition)
   {
     cellsAlive = 0;
 
@@ -42,16 +42,16 @@ namespace game
       for (int j = columnStart; j <= columnEnd; j++)
       {
         if (!isCurrentCell(i, linePosition, j, columnPosition))
-          {if (ppTempArray[i][j] == '*') {cellsAlive++;}}
+          {if (ppTempArray[i][j] == AliveCell) {cellsAlive++;}}
       }
     }
 
     if (cellsAlive == 3)
-      {ppRealArray[linePosition][columnPosition] = '*';}
+      {ppRealArray[linePosition][columnPosition] = AliveCell;}
   }
 
 
-  void checkAliveCell(char** const ppRealArray, char** ppTempArray, const int linePosition, const int columnPosition)
+  void checkAliveCell(char** ppRealArray, char** ppTempArray, const int linePosition, const int columnPosition)
   {
     cellsAlive = 0;
 
@@ -66,16 +66,16 @@ namespace game
       for (int j = columnStart; j <= columnEnd; j++)
       {
         if (!isCurrentCell(i, linePosition, j, columnPosition))
-          {if (ppTempArray[i][j] == '*') {cellsAlive++;}}
+          {if (ppTempArray[i][j] == AliveCell) {cellsAlive++;}}
       }
     }
 
     if ( (cellsAlive < 2) || (cellsAlive > 3) )
-      {ppRealArray[linePosition][columnPosition] = '-';}
+      {ppRealArray[linePosition][columnPosition] = DeadCell;}
   }
 
 
-  bool isCurrentCell(int currentLine, int linePosition, int currentColumn, int columnPosition)
+  bool isCurrentCell(const int currentLine, const int linePosition, const int currentColumn, const int columnPosition)
   {
     if ( (currentLine == linePosition) && (currentColumn == columnPosition) )
       {return true;}
@@ -83,16 +83,18 @@ namespace game
   }
 
 
-  void checkForTheEndOfGame(char** ppNewGeneration, char** ppOldGeneration, const int rows, const int columns)
+  void checkForTheEndOfGame(const char* const* ppNewGeneration, const char* const* ppOldGeneration, const int rows, const int columns)
   {
     cellsAlive = 0;
     bool nextGenerationsBegins{false};
+
+    // ppNewGeneration[1][1]++;
     
     for (int i = 0; i < rows; i++)
     {
       for (int j = 0; j < columns; j++)
       {
-        if (ppNewGeneration[i][j] == '*') {cellsAlive++;}
+        if (ppNewGeneration[i][j] == AliveCell) {cellsAlive++;}
         
         if ( (ppNewGeneration[i][j] != ppOldGeneration[i][j]) && !nextGenerationsBegins)
           {nextGenerationsBegins = true;}
@@ -105,7 +107,7 @@ namespace game
   }
 
 
-  void printGenerationState(char** ppNewGeneration, const int rows, const int columns)
+  void printGenerationState(const char* const* ppNewGeneration, const int rows, const int columns)
   {
     if (!gameOver) {printNewGeneration(ppNewGeneration, rows, columns, generation, cellsAlive);}
     else
@@ -118,22 +120,23 @@ namespace game
   }
 
 
-  void printNewGeneration(char** ppArr, const int rows, const int columns, const int generation, const int cellsAlive)
+  void printNewGeneration(const char* const* ppArr, const int rows, const int columns, const int generation, const int cellsAlive)
   {
     printArray(ppArr, rows, columns);
     std::cout << "Generation: " << generation << ". Alive cells: " << cellsAlive << std::endl;
   }
 
 
-  void printBadEnd(char** ppArr, const int rows, const int columns, const int generation, const int cellsAlive)
+  void printBadEnd(const char* const* ppArr, const int rows, const int columns, const int generation, const int cellsAlive)
   {
     printArray(ppArr, rows, columns);
+    ppArr++;
     std::cout << "Generation: " << generation << ". Alive cells: " << cellsAlive << std::endl;
     std::cout << "All cells are dead. Game over" << std::endl;
   }
 
 
-  void printHappyEnd(char** ppArr, const int rows, const int columns, const int generation, const int cellsAlive)
+  void printHappyEnd(const char* const* ppArr, const int rows, const int columns, const int generation, const int cellsAlive)
   {
     printArray(ppArr, rows, columns);
     std::cout << "Generation: " << generation << ". Alive cells: " << cellsAlive << std::endl;
