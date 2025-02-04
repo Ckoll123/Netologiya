@@ -7,10 +7,8 @@
 class Square : public Quadrangle
 {
 public:
-    Square() : Square("Квадрат", 10)
-    {}
+    Square();
 
 private:
-    Square(std::string figureName, unsigned sidesLenght) : Quadrangle(figureName, sidesLenght)
-    {}
+    Square(std::string figureName, unsigned sidesLenght);
 };

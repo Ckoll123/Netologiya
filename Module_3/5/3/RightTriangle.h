@@ -7,10 +7,8 @@
 class RightTriangle : public Triangle
 {
 public:
-    RightTriangle() : RightTriangle("Прямоугольный треугольник", 90)
-    {}
+    RightTriangle();
 
 private:
-    RightTriangle(std::string figureName, unsigned angleC) : Triangle(figureName, angleC)
-    {}
+    RightTriangle(std::string figureName, unsigned angleC);
 };

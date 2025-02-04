@@ -7,11 +7,8 @@
 class Rectangle : public Quadrangle
 {
 public:
-    Rectangle() : Rectangle("Прямоугольник", 10, 20)
-    {}
+    Rectangle();
 
 private:
-    Rectangle(std::string figureName, unsigned sidesACLenght, unsigned sidesBDLenght) :
-        Quadrangle(figureName, sidesACLenght, sidesBDLenght)
-    {}
+    Rectangle(std::string figureName, unsigned sidesACLenght, unsigned sidesBDLenght);
 };

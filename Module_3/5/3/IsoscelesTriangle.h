@@ -7,11 +7,8 @@
 class IsoscelesTriangle : public Triangle
 {
 public:
-    IsoscelesTriangle() : IsoscelesTriangle("Равнобедренный треугольник", 10, 50)
-    {}
+    IsoscelesTriangle();
 
 private:
-    IsoscelesTriangle(std::string figureName, unsigned equalSidesLenght, unsigned equalAngleLength) :
-        Triangle(figureName, equalSidesLenght, equalAngleLength)
-    {}
+    IsoscelesTriangle(std::string figureName, unsigned equalSidesLenght, unsigned equalAngleLength);
 };

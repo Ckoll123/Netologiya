@@ -12,7 +12,14 @@
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
                 "${fileDirname}\\Figure.cpp",
                 "${fileDirname}\\Triangle.cpp",
-                "${fileDirname}\\Quadrangle.cpp"
+                "${fileDirname}\\RightTriangle.cpp",
+                "${fileDirname}\\IsoscelesTriangle.cpp",
+                "${fileDirname}\\EquilateralTriangle.cpp",
+                "${fileDirname}\\Quadrangle.cpp",
+                "${fileDirname}\\Rectangle.cpp",
+                "${fileDirname}\\Square.cpp",
+                "${fileDirname}\\Parallelogram.cpp",
+                "${fileDirname}\\Rhombus.cpp"
             ],
             "options": {
                 "cwd": "${fileDirname}"
