@@ -5,18 +5,18 @@
 class Address
 {
 public:
-    void setAddress(std::ifstream& inStream);
+    Address(std::ifstream& inStream);
     void getAddress(std::ofstream& outStream);
+    std::string getCity() const;
+
 private:
     std::string city;
     std::string street;
     unsigned building;
     unsigned room;
-
-friend void sortAddresses(Address* addressNumber, unsigned addressQuantity);
 };
 
-void sortAddresses(Address* addressNumber, unsigned addressQuantity);
+void sortAddresses(Address** addressNumber, unsigned addressQuantity);
 
 int main()
 {
@@ -31,10 +31,11 @@ int main()
 
     unsigned numberOfAddresses;
     inputFile >> numberOfAddresses;
-    Address addressDataBase[numberOfAddresses];
+
+    Address** addressDataBase = new Address* [numberOfAddresses];
 
     for (unsigned i = 0; i < numberOfAddresses; i++)
-    { addressDataBase[i].setAddress(inputFile); }
+    { addressDataBase[i] = new Address(inputFile); }
 
     sortAddresses(addressDataBase, numberOfAddresses);
 
@@ -42,16 +43,19 @@ int main()
 
     outFile << numberOfAddresses << std::endl;
     for (unsigned i = 0; i < numberOfAddresses; i++)
-    { addressDataBase[i].getAddress(outFile); }
+    { addressDataBase[i]->getAddress(outFile); }
 
     outFile.close();
     inputFile.close();
 
+    for (unsigned i = 0; i < numberOfAddresses; i++)
+    { delete addressDataBase[i]; }
 
+    delete []addressDataBase;
 }
 
 
-void Address::setAddress(std::ifstream& inStream)
+Address::Address(std::ifstream& inStream)
 { inStream >> city >> street >> building >> room; }
 
 void Address::getAddress(std::ofstream& outStream)
@@ -63,21 +67,25 @@ void Address::getAddress(std::ofstream& outStream)
               << std::endl;
 }
 
-void sortAddresses(Address* addressNumber, unsigned addressQuantity)
+std::string Address::getCity() const
+{ return city; }
+
+
+void sortAddresses(Address** addressNumber, unsigned addressQuantity)
 {
     bool sorted{true};
-    std::string temp;
+    Address* temp;
 
     for (int i = addressQuantity - 1; i >=0 ; i--)
     {
         sorted = true;
         for (int j = 0; j < i; j++)
         {
-            if (addressNumber[j].city > addressNumber[j + 1].city)
+            if (addressNumber[j]->getCity() > addressNumber[j + 1]->getCity())
             {
-                temp = addressNumber[j].city;
-                addressNumber[j].city = addressNumber[j + 1].city;
-                addressNumber[j + 1].city = temp;
+                temp = addressNumber[j];
+                addressNumber[j] = addressNumber[j + 1];
+                addressNumber[j + 1] = temp;
                 sorted = false;
             }
         }
