@@ -7,10 +7,8 @@
 class EquilateralTriangle : public Triangle
 {
 public:
-    EquilateralTriangle() : EquilateralTriangle("Равносторонний треугольник", 30)
-    {}
+    EquilateralTriangle();
 
 private:
-    EquilateralTriangle(std::string figureName, unsigned equalSidesLenght) : Triangle(figureName, 30, 0)
-    {}
+    EquilateralTriangle(std::string figureName, unsigned equalSidesLenght);
 };

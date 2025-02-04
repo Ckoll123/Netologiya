@@ -21,18 +21,18 @@ int main()
 {
     std::cout << "Задача 3. Иерархия классов" << std::endl << std::endl;
 
-    class Figure figure;
+    Figure figure;
 
-    class Triangle triangle;
-    class RightTriangle rightTriangle;
-    class IsoscelesTriangle isoscelesTriangle;
-    class EquilateralTriangle equilateralTriangle;
+    Triangle triangle;
+    RightTriangle rightTriangle;
+    IsoscelesTriangle isoscelesTriangle;
+    EquilateralTriangle equilateralTriangle;
 
-    class Quadrangle quadrangle;
-    class Rectangle rectangle;
-    class Square square;
-    class Parallelogram parallelogram;
-    class Rhombus rhombus;
+    Quadrangle quadrangle;
+    Rectangle rectangle;
+    Square square;
+    Parallelogram parallelogram;
+    Rhombus rhombus;
 
     printInfo(&figure);
     std::cout << std::endl;
