@@ -2,52 +2,46 @@
 #include <fstream>
 #include <string>
 
-class Address
+
+struct initAddress
 {
-public:
-    Address() :
-        city("Default"),
-        street("Default"),
-        building(1),
-        room(1)
-    {}
-    Address(std::string cityInit, std::string streetInit, unsigned buildingInit, unsigned roomInnit) :
-        city(cityInit),
-        street(streetInit),
-        building(buildingInit),
-        room(roomInnit)
-    {}
-
-    void setCity(std::string);
-    void setStreet(std::string);
-    void setBuilding(unsigned);
-    void setRoom(unsigned);
-
-    std::string getAddress();
-
-private:
     std::string city;
     std::string street;
     unsigned building;
     unsigned room;
+
+    initAddress() :
+        city(""),
+        street(""),
+        building(0),
+        room(0)
+    {}
 };
 
-void Address::setCity(std::string cityIn)
-{ if (!std::empty(cityIn)) { city = cityIn; } }
+class Address
+{
+public:
+    Address(initAddress& inData) :
+        _city(inData.city),
+        _street(inData.street),
+        _building(inData.building),
+        _room(inData.room)
+    {}
 
-void Address::setStreet(std::string StreetIn)
-{ if (!std::empty(StreetIn)) { street = StreetIn; } }
+    std::string getAddress() const;
 
-void Address::setBuilding(unsigned buildingIn)
-{ building = buildingIn;}
+private:
+    std::string _city;
+    std::string _street;
+    unsigned _building;
+    unsigned _room;
+};
 
-void Address::setRoom(unsigned roomIn)
-{ room = roomIn; }
 
-std::string Address::getAddress()
+std::string Address::getAddress() const
 {
     std::string outAddress;
-    outAddress = city + ", " + street + ", " + std::to_string(building) + ", " + std::to_string(room) + "\n";
+    outAddress = _city + ", " + _street + ", " + std::to_string(_building) + ", " + std::to_string(_room) + "\n";
     return outAddress;
 }
 
@@ -62,24 +56,17 @@ int main()
     {
         int numberOfAddresses;
         inputFile >> numberOfAddresses;
-        Address* addresses = new Address[numberOfAddresses];
+        Address** addresses = new Address* [numberOfAddresses];
 
         for (int i = 0; i < numberOfAddresses; i++)
         {
-            std::string tempString;
-            unsigned tempNumber;
+            initAddress inData;
 
-            inputFile >> tempString;
-            addresses[i].setCity(tempString);
-
-            inputFile >> tempString;
-            addresses[i].setStreet(tempString);
-
-            inputFile >> tempNumber;
-            addresses[i].setBuilding(tempNumber);
-
-            inputFile >> tempNumber;
-            addresses[i].setRoom(tempNumber);
+            inputFile >> inData.city;
+            inputFile >> inData.street;
+            inputFile >> inData.building;
+            inputFile >> inData.room;
+            addresses[i] = new Address(inData);
         }
 
         std::ofstream outFile("out.txt");
@@ -87,13 +74,14 @@ int main()
         {
             outFile << numberOfAddresses << std::endl;
             for (int i = numberOfAddresses - 1; i >= 0; i--)
-            {
-                outFile << addresses[i].getAddress();
-            }
+            { outFile << addresses[i]->getAddress(); }
+
             outFile.close();
         }
         inputFile.close();
 
+        for (int i = 0; i < numberOfAddresses; i++)
+        { delete addresses[i]; }
         delete []addresses;
     }
     else {std::cout << "Не удалось открыть файл!" << std::endl;}
