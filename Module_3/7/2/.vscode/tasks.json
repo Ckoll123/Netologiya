@@ -1,0 +1,39 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++.exe сборка активного файла",
+            "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "${fileDirname}\\Figure.cpp",
+                "${fileDirname}\\Triangle.cpp",
+                "${fileDirname}\\RightTriangle.cpp",
+                "${fileDirname}\\IsoscelesTriangle.cpp",
+                "${fileDirname}\\EquilateralTriangle.cpp",
+                "${fileDirname}\\Quadrangle.cpp",
+                "${fileDirname}\\Rectangle.cpp",
+                "${fileDirname}\\Square.cpp",
+                "${fileDirname}\\Parallelogram.cpp",
+                "${fileDirname}\\Rhombus.cpp",
+                "${fileDirname}\\FiguresException.cpp"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Задача создана отладчиком."
+        }
+    ],
+    "version": "2.0.0"
+}
