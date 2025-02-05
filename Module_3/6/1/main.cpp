@@ -7,13 +7,15 @@
     { return a + b; }
 #endif
 
+#ifndef MODE
+#error "Нееобходимо определить MODE"
+#endif
+
 int main()
 {
     std::cout << "Задача 1. Препроцессорные директивы" << std::endl << std::endl;
 
-#ifndef MODE
-    std::cout << "Нееобходимо определить MODE" << std::endl;
-#elif MODE == 1
+#if MODE == 1
 {
     std::cout << "Работаю в боевом режиме" << std::endl;
     int number1; 
