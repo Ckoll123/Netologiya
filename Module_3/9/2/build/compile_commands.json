@@ -1,0 +1,74 @@
+[
+{
+  "directory": "C:/VsCodeProjects/Netologiya/Module_3/9/2/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -o CMakeFiles\\testProject2.dir\\EquilateralTriangle.cpp.obj -c C:\\VsCodeProjects\\Netologiya\\Module_3\\9\\2\\EquilateralTriangle.cpp",
+  "file": "C:/VsCodeProjects/Netologiya/Module_3/9/2/EquilateralTriangle.cpp",
+  "output": "CMakeFiles/testProject2.dir/EquilateralTriangle.cpp.obj"
+},
+{
+  "directory": "C:/VsCodeProjects/Netologiya/Module_3/9/2/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -o CMakeFiles\\testProject2.dir\\Figure.cpp.obj -c C:\\VsCodeProjects\\Netologiya\\Module_3\\9\\2\\Figure.cpp",
+  "file": "C:/VsCodeProjects/Netologiya/Module_3/9/2/Figure.cpp",
+  "output": "CMakeFiles/testProject2.dir/Figure.cpp.obj"
+},
+{
+  "directory": "C:/VsCodeProjects/Netologiya/Module_3/9/2/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -o CMakeFiles\\testProject2.dir\\FiguresException.cpp.obj -c C:\\VsCodeProjects\\Netologiya\\Module_3\\9\\2\\FiguresException.cpp",
+  "file": "C:/VsCodeProjects/Netologiya/Module_3/9/2/FiguresException.cpp",
+  "output": "CMakeFiles/testProject2.dir/FiguresException.cpp.obj"
+},
+{
+  "directory": "C:/VsCodeProjects/Netologiya/Module_3/9/2/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -o CMakeFiles\\testProject2.dir\\IsoscelesTriangle.cpp.obj -c C:\\VsCodeProjects\\Netologiya\\Module_3\\9\\2\\IsoscelesTriangle.cpp",
+  "file": "C:/VsCodeProjects/Netologiya/Module_3/9/2/IsoscelesTriangle.cpp",
+  "output": "CMakeFiles/testProject2.dir/IsoscelesTriangle.cpp.obj"
+},
+{
+  "directory": "C:/VsCodeProjects/Netologiya/Module_3/9/2/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -o CMakeFiles\\testProject2.dir\\Parallelogram.cpp.obj -c C:\\VsCodeProjects\\Netologiya\\Module_3\\9\\2\\Parallelogram.cpp",
+  "file": "C:/VsCodeProjects/Netologiya/Module_3/9/2/Parallelogram.cpp",
+  "output": "CMakeFiles/testProject2.dir/Parallelogram.cpp.obj"
+},
+{
+  "directory": "C:/VsCodeProjects/Netologiya/Module_3/9/2/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -o CMakeFiles\\testProject2.dir\\Quadrangle.cpp.obj -c C:\\VsCodeProjects\\Netologiya\\Module_3\\9\\2\\Quadrangle.cpp",
+  "file": "C:/VsCodeProjects/Netologiya/Module_3/9/2/Quadrangle.cpp",
+  "output": "CMakeFiles/testProject2.dir/Quadrangle.cpp.obj"
+},
+{
+  "directory": "C:/VsCodeProjects/Netologiya/Module_3/9/2/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -o CMakeFiles\\testProject2.dir\\Rectangle.cpp.obj -c C:\\VsCodeProjects\\Netologiya\\Module_3\\9\\2\\Rectangle.cpp",
+  "file": "C:/VsCodeProjects/Netologiya/Module_3/9/2/Rectangle.cpp",
+  "output": "CMakeFiles/testProject2.dir/Rectangle.cpp.obj"
+},
+{
+  "directory": "C:/VsCodeProjects/Netologiya/Module_3/9/2/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -o CMakeFiles\\testProject2.dir\\Rhombus.cpp.obj -c C:\\VsCodeProjects\\Netologiya\\Module_3\\9\\2\\Rhombus.cpp",
+  "file": "C:/VsCodeProjects/Netologiya/Module_3/9/2/Rhombus.cpp",
+  "output": "CMakeFiles/testProject2.dir/Rhombus.cpp.obj"
+},
+{
+  "directory": "C:/VsCodeProjects/Netologiya/Module_3/9/2/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -o CMakeFiles\\testProject2.dir\\RightTriangle.cpp.obj -c C:\\VsCodeProjects\\Netologiya\\Module_3\\9\\2\\RightTriangle.cpp",
+  "file": "C:/VsCodeProjects/Netologiya/Module_3/9/2/RightTriangle.cpp",
+  "output": "CMakeFiles/testProject2.dir/RightTriangle.cpp.obj"
+},
+{
+  "directory": "C:/VsCodeProjects/Netologiya/Module_3/9/2/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -o CMakeFiles\\testProject2.dir\\Square.cpp.obj -c C:\\VsCodeProjects\\Netologiya\\Module_3\\9\\2\\Square.cpp",
+  "file": "C:/VsCodeProjects/Netologiya/Module_3/9/2/Square.cpp",
+  "output": "CMakeFiles/testProject2.dir/Square.cpp.obj"
+},
+{
+  "directory": "C:/VsCodeProjects/Netologiya/Module_3/9/2/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -o CMakeFiles\\testProject2.dir\\Triangle.cpp.obj -c C:\\VsCodeProjects\\Netologiya\\Module_3\\9\\2\\Triangle.cpp",
+  "file": "C:/VsCodeProjects/Netologiya/Module_3/9/2/Triangle.cpp",
+  "output": "CMakeFiles/testProject2.dir/Triangle.cpp.obj"
+},
+{
+  "directory": "C:/VsCodeProjects/Netologiya/Module_3/9/2/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -o CMakeFiles\\testProject2.dir\\main.cpp.obj -c C:\\VsCodeProjects\\Netologiya\\Module_3\\9\\2\\main.cpp",
+  "file": "C:/VsCodeProjects/Netologiya/Module_3/9/2/main.cpp",
+  "output": "CMakeFiles/testProject2.dir/main.cpp.obj"
+}
+]

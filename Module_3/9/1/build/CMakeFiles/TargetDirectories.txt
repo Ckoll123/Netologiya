@@ -1,0 +1,3 @@
+C:/VsCodeProjects/Netologiya/Module_3/9/1/build/CMakeFiles/my_first_cmake_project.dir
+C:/VsCodeProjects/Netologiya/Module_3/9/1/build/CMakeFiles/edit_cache.dir
+C:/VsCodeProjects/Netologiya/Module_3/9/1/build/CMakeFiles/rebuild_cache.dir
