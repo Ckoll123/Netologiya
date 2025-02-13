@@ -71,19 +71,19 @@ include CMakeFiles/testProject2.dir/flags.make
 CMakeFiles/testProject2.dir/codegen:
 .PHONY : CMakeFiles/testProject2.dir/codegen
 
-CMakeFiles/testProject2.dir/EquilateralTriangle.cpp.obj: CMakeFiles/testProject2.dir/flags.make
-CMakeFiles/testProject2.dir/EquilateralTriangle.cpp.obj: C:/VsCodeProjects/Netologiya/Module_3/9/2/EquilateralTriangle.cpp
-CMakeFiles/testProject2.dir/EquilateralTriangle.cpp.obj: CMakeFiles/testProject2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\VsCodeProjects\Netologiya\Module_3\9\2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/testProject2.dir/EquilateralTriangle.cpp.obj"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testProject2.dir/EquilateralTriangle.cpp.obj -MF CMakeFiles\testProject2.dir\EquilateralTriangle.cpp.obj.d -o CMakeFiles\testProject2.dir\EquilateralTriangle.cpp.obj -c C:\VsCodeProjects\Netologiya\Module_3\9\2\EquilateralTriangle.cpp
+CMakeFiles/testProject2.dir/main.cpp.obj: CMakeFiles/testProject2.dir/flags.make
+CMakeFiles/testProject2.dir/main.cpp.obj: C:/VsCodeProjects/Netologiya/Module_3/9/2/main.cpp
+CMakeFiles/testProject2.dir/main.cpp.obj: CMakeFiles/testProject2.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\VsCodeProjects\Netologiya\Module_3\9\2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/testProject2.dir/main.cpp.obj"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testProject2.dir/main.cpp.obj -MF CMakeFiles\testProject2.dir\main.cpp.obj.d -o CMakeFiles\testProject2.dir\main.cpp.obj -c C:\VsCodeProjects\Netologiya\Module_3\9\2\main.cpp
 
-CMakeFiles/testProject2.dir/EquilateralTriangle.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/testProject2.dir/EquilateralTriangle.cpp.i"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\VsCodeProjects\Netologiya\Module_3\9\2\EquilateralTriangle.cpp > CMakeFiles\testProject2.dir\EquilateralTriangle.cpp.i
+CMakeFiles/testProject2.dir/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/testProject2.dir/main.cpp.i"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\VsCodeProjects\Netologiya\Module_3\9\2\main.cpp > CMakeFiles\testProject2.dir\main.cpp.i
 
-CMakeFiles/testProject2.dir/EquilateralTriangle.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/testProject2.dir/EquilateralTriangle.cpp.s"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\VsCodeProjects\Netologiya\Module_3\9\2\EquilateralTriangle.cpp -o CMakeFiles\testProject2.dir\EquilateralTriangle.cpp.s
+CMakeFiles/testProject2.dir/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/testProject2.dir/main.cpp.s"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\VsCodeProjects\Netologiya\Module_3\9\2\main.cpp -o CMakeFiles\testProject2.dir\main.cpp.s
 
 CMakeFiles/testProject2.dir/Figure.cpp.obj: CMakeFiles/testProject2.dir/flags.make
 CMakeFiles/testProject2.dir/Figure.cpp.obj: C:/VsCodeProjects/Netologiya/Module_3/9/2/Figure.cpp
@@ -99,24 +99,38 @@ CMakeFiles/testProject2.dir/Figure.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/testProject2.dir/Figure.cpp.s"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\VsCodeProjects\Netologiya\Module_3\9\2\Figure.cpp -o CMakeFiles\testProject2.dir\Figure.cpp.s
 
-CMakeFiles/testProject2.dir/FiguresException.cpp.obj: CMakeFiles/testProject2.dir/flags.make
-CMakeFiles/testProject2.dir/FiguresException.cpp.obj: C:/VsCodeProjects/Netologiya/Module_3/9/2/FiguresException.cpp
-CMakeFiles/testProject2.dir/FiguresException.cpp.obj: CMakeFiles/testProject2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\VsCodeProjects\Netologiya\Module_3\9\2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/testProject2.dir/FiguresException.cpp.obj"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testProject2.dir/FiguresException.cpp.obj -MF CMakeFiles\testProject2.dir\FiguresException.cpp.obj.d -o CMakeFiles\testProject2.dir\FiguresException.cpp.obj -c C:\VsCodeProjects\Netologiya\Module_3\9\2\FiguresException.cpp
+CMakeFiles/testProject2.dir/Triangle.cpp.obj: CMakeFiles/testProject2.dir/flags.make
+CMakeFiles/testProject2.dir/Triangle.cpp.obj: C:/VsCodeProjects/Netologiya/Module_3/9/2/Triangle.cpp
+CMakeFiles/testProject2.dir/Triangle.cpp.obj: CMakeFiles/testProject2.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\VsCodeProjects\Netologiya\Module_3\9\2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/testProject2.dir/Triangle.cpp.obj"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testProject2.dir/Triangle.cpp.obj -MF CMakeFiles\testProject2.dir\Triangle.cpp.obj.d -o CMakeFiles\testProject2.dir\Triangle.cpp.obj -c C:\VsCodeProjects\Netologiya\Module_3\9\2\Triangle.cpp
 
-CMakeFiles/testProject2.dir/FiguresException.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/testProject2.dir/FiguresException.cpp.i"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\VsCodeProjects\Netologiya\Module_3\9\2\FiguresException.cpp > CMakeFiles\testProject2.dir\FiguresException.cpp.i
+CMakeFiles/testProject2.dir/Triangle.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/testProject2.dir/Triangle.cpp.i"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\VsCodeProjects\Netologiya\Module_3\9\2\Triangle.cpp > CMakeFiles\testProject2.dir\Triangle.cpp.i
 
-CMakeFiles/testProject2.dir/FiguresException.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/testProject2.dir/FiguresException.cpp.s"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\VsCodeProjects\Netologiya\Module_3\9\2\FiguresException.cpp -o CMakeFiles\testProject2.dir\FiguresException.cpp.s
+CMakeFiles/testProject2.dir/Triangle.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/testProject2.dir/Triangle.cpp.s"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\VsCodeProjects\Netologiya\Module_3\9\2\Triangle.cpp -o CMakeFiles\testProject2.dir\Triangle.cpp.s
+
+CMakeFiles/testProject2.dir/RightTriangle.cpp.obj: CMakeFiles/testProject2.dir/flags.make
+CMakeFiles/testProject2.dir/RightTriangle.cpp.obj: C:/VsCodeProjects/Netologiya/Module_3/9/2/RightTriangle.cpp
+CMakeFiles/testProject2.dir/RightTriangle.cpp.obj: CMakeFiles/testProject2.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\VsCodeProjects\Netologiya\Module_3\9\2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/testProject2.dir/RightTriangle.cpp.obj"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testProject2.dir/RightTriangle.cpp.obj -MF CMakeFiles\testProject2.dir\RightTriangle.cpp.obj.d -o CMakeFiles\testProject2.dir\RightTriangle.cpp.obj -c C:\VsCodeProjects\Netologiya\Module_3\9\2\RightTriangle.cpp
+
+CMakeFiles/testProject2.dir/RightTriangle.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/testProject2.dir/RightTriangle.cpp.i"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\VsCodeProjects\Netologiya\Module_3\9\2\RightTriangle.cpp > CMakeFiles\testProject2.dir\RightTriangle.cpp.i
+
+CMakeFiles/testProject2.dir/RightTriangle.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/testProject2.dir/RightTriangle.cpp.s"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\VsCodeProjects\Netologiya\Module_3\9\2\RightTriangle.cpp -o CMakeFiles\testProject2.dir\RightTriangle.cpp.s
 
 CMakeFiles/testProject2.dir/IsoscelesTriangle.cpp.obj: CMakeFiles/testProject2.dir/flags.make
 CMakeFiles/testProject2.dir/IsoscelesTriangle.cpp.obj: C:/VsCodeProjects/Netologiya/Module_3/9/2/IsoscelesTriangle.cpp
 CMakeFiles/testProject2.dir/IsoscelesTriangle.cpp.obj: CMakeFiles/testProject2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\VsCodeProjects\Netologiya\Module_3\9\2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/testProject2.dir/IsoscelesTriangle.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\VsCodeProjects\Netologiya\Module_3\9\2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/testProject2.dir/IsoscelesTriangle.cpp.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testProject2.dir/IsoscelesTriangle.cpp.obj -MF CMakeFiles\testProject2.dir\IsoscelesTriangle.cpp.obj.d -o CMakeFiles\testProject2.dir\IsoscelesTriangle.cpp.obj -c C:\VsCodeProjects\Netologiya\Module_3\9\2\IsoscelesTriangle.cpp
 
 CMakeFiles/testProject2.dir/IsoscelesTriangle.cpp.i: cmake_force
@@ -127,24 +141,24 @@ CMakeFiles/testProject2.dir/IsoscelesTriangle.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/testProject2.dir/IsoscelesTriangle.cpp.s"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\VsCodeProjects\Netologiya\Module_3\9\2\IsoscelesTriangle.cpp -o CMakeFiles\testProject2.dir\IsoscelesTriangle.cpp.s
 
-CMakeFiles/testProject2.dir/Parallelogram.cpp.obj: CMakeFiles/testProject2.dir/flags.make
-CMakeFiles/testProject2.dir/Parallelogram.cpp.obj: C:/VsCodeProjects/Netologiya/Module_3/9/2/Parallelogram.cpp
-CMakeFiles/testProject2.dir/Parallelogram.cpp.obj: CMakeFiles/testProject2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\VsCodeProjects\Netologiya\Module_3\9\2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/testProject2.dir/Parallelogram.cpp.obj"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testProject2.dir/Parallelogram.cpp.obj -MF CMakeFiles\testProject2.dir\Parallelogram.cpp.obj.d -o CMakeFiles\testProject2.dir\Parallelogram.cpp.obj -c C:\VsCodeProjects\Netologiya\Module_3\9\2\Parallelogram.cpp
+CMakeFiles/testProject2.dir/EquilateralTriangle.cpp.obj: CMakeFiles/testProject2.dir/flags.make
+CMakeFiles/testProject2.dir/EquilateralTriangle.cpp.obj: C:/VsCodeProjects/Netologiya/Module_3/9/2/EquilateralTriangle.cpp
+CMakeFiles/testProject2.dir/EquilateralTriangle.cpp.obj: CMakeFiles/testProject2.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\VsCodeProjects\Netologiya\Module_3\9\2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/testProject2.dir/EquilateralTriangle.cpp.obj"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testProject2.dir/EquilateralTriangle.cpp.obj -MF CMakeFiles\testProject2.dir\EquilateralTriangle.cpp.obj.d -o CMakeFiles\testProject2.dir\EquilateralTriangle.cpp.obj -c C:\VsCodeProjects\Netologiya\Module_3\9\2\EquilateralTriangle.cpp
 
-CMakeFiles/testProject2.dir/Parallelogram.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/testProject2.dir/Parallelogram.cpp.i"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\VsCodeProjects\Netologiya\Module_3\9\2\Parallelogram.cpp > CMakeFiles\testProject2.dir\Parallelogram.cpp.i
+CMakeFiles/testProject2.dir/EquilateralTriangle.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/testProject2.dir/EquilateralTriangle.cpp.i"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\VsCodeProjects\Netologiya\Module_3\9\2\EquilateralTriangle.cpp > CMakeFiles\testProject2.dir\EquilateralTriangle.cpp.i
 
-CMakeFiles/testProject2.dir/Parallelogram.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/testProject2.dir/Parallelogram.cpp.s"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\VsCodeProjects\Netologiya\Module_3\9\2\Parallelogram.cpp -o CMakeFiles\testProject2.dir\Parallelogram.cpp.s
+CMakeFiles/testProject2.dir/EquilateralTriangle.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/testProject2.dir/EquilateralTriangle.cpp.s"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\VsCodeProjects\Netologiya\Module_3\9\2\EquilateralTriangle.cpp -o CMakeFiles\testProject2.dir\EquilateralTriangle.cpp.s
 
 CMakeFiles/testProject2.dir/Quadrangle.cpp.obj: CMakeFiles/testProject2.dir/flags.make
 CMakeFiles/testProject2.dir/Quadrangle.cpp.obj: C:/VsCodeProjects/Netologiya/Module_3/9/2/Quadrangle.cpp
 CMakeFiles/testProject2.dir/Quadrangle.cpp.obj: CMakeFiles/testProject2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\VsCodeProjects\Netologiya\Module_3\9\2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/testProject2.dir/Quadrangle.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\VsCodeProjects\Netologiya\Module_3\9\2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/testProject2.dir/Quadrangle.cpp.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testProject2.dir/Quadrangle.cpp.obj -MF CMakeFiles\testProject2.dir\Quadrangle.cpp.obj.d -o CMakeFiles\testProject2.dir\Quadrangle.cpp.obj -c C:\VsCodeProjects\Netologiya\Module_3\9\2\Quadrangle.cpp
 
 CMakeFiles/testProject2.dir/Quadrangle.cpp.i: cmake_force
@@ -158,7 +172,7 @@ CMakeFiles/testProject2.dir/Quadrangle.cpp.s: cmake_force
 CMakeFiles/testProject2.dir/Rectangle.cpp.obj: CMakeFiles/testProject2.dir/flags.make
 CMakeFiles/testProject2.dir/Rectangle.cpp.obj: C:/VsCodeProjects/Netologiya/Module_3/9/2/Rectangle.cpp
 CMakeFiles/testProject2.dir/Rectangle.cpp.obj: CMakeFiles/testProject2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\VsCodeProjects\Netologiya\Module_3\9\2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/testProject2.dir/Rectangle.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\VsCodeProjects\Netologiya\Module_3\9\2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/testProject2.dir/Rectangle.cpp.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testProject2.dir/Rectangle.cpp.obj -MF CMakeFiles\testProject2.dir\Rectangle.cpp.obj.d -o CMakeFiles\testProject2.dir\Rectangle.cpp.obj -c C:\VsCodeProjects\Netologiya\Module_3\9\2\Rectangle.cpp
 
 CMakeFiles/testProject2.dir/Rectangle.cpp.i: cmake_force
@@ -169,38 +183,10 @@ CMakeFiles/testProject2.dir/Rectangle.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/testProject2.dir/Rectangle.cpp.s"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\VsCodeProjects\Netologiya\Module_3\9\2\Rectangle.cpp -o CMakeFiles\testProject2.dir\Rectangle.cpp.s
 
-CMakeFiles/testProject2.dir/Rhombus.cpp.obj: CMakeFiles/testProject2.dir/flags.make
-CMakeFiles/testProject2.dir/Rhombus.cpp.obj: C:/VsCodeProjects/Netologiya/Module_3/9/2/Rhombus.cpp
-CMakeFiles/testProject2.dir/Rhombus.cpp.obj: CMakeFiles/testProject2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\VsCodeProjects\Netologiya\Module_3\9\2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/testProject2.dir/Rhombus.cpp.obj"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testProject2.dir/Rhombus.cpp.obj -MF CMakeFiles\testProject2.dir\Rhombus.cpp.obj.d -o CMakeFiles\testProject2.dir\Rhombus.cpp.obj -c C:\VsCodeProjects\Netologiya\Module_3\9\2\Rhombus.cpp
-
-CMakeFiles/testProject2.dir/Rhombus.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/testProject2.dir/Rhombus.cpp.i"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\VsCodeProjects\Netologiya\Module_3\9\2\Rhombus.cpp > CMakeFiles\testProject2.dir\Rhombus.cpp.i
-
-CMakeFiles/testProject2.dir/Rhombus.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/testProject2.dir/Rhombus.cpp.s"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\VsCodeProjects\Netologiya\Module_3\9\2\Rhombus.cpp -o CMakeFiles\testProject2.dir\Rhombus.cpp.s
-
-CMakeFiles/testProject2.dir/RightTriangle.cpp.obj: CMakeFiles/testProject2.dir/flags.make
-CMakeFiles/testProject2.dir/RightTriangle.cpp.obj: C:/VsCodeProjects/Netologiya/Module_3/9/2/RightTriangle.cpp
-CMakeFiles/testProject2.dir/RightTriangle.cpp.obj: CMakeFiles/testProject2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\VsCodeProjects\Netologiya\Module_3\9\2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/testProject2.dir/RightTriangle.cpp.obj"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testProject2.dir/RightTriangle.cpp.obj -MF CMakeFiles\testProject2.dir\RightTriangle.cpp.obj.d -o CMakeFiles\testProject2.dir\RightTriangle.cpp.obj -c C:\VsCodeProjects\Netologiya\Module_3\9\2\RightTriangle.cpp
-
-CMakeFiles/testProject2.dir/RightTriangle.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/testProject2.dir/RightTriangle.cpp.i"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\VsCodeProjects\Netologiya\Module_3\9\2\RightTriangle.cpp > CMakeFiles\testProject2.dir\RightTriangle.cpp.i
-
-CMakeFiles/testProject2.dir/RightTriangle.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/testProject2.dir/RightTriangle.cpp.s"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\VsCodeProjects\Netologiya\Module_3\9\2\RightTriangle.cpp -o CMakeFiles\testProject2.dir\RightTriangle.cpp.s
-
 CMakeFiles/testProject2.dir/Square.cpp.obj: CMakeFiles/testProject2.dir/flags.make
 CMakeFiles/testProject2.dir/Square.cpp.obj: C:/VsCodeProjects/Netologiya/Module_3/9/2/Square.cpp
 CMakeFiles/testProject2.dir/Square.cpp.obj: CMakeFiles/testProject2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\VsCodeProjects\Netologiya\Module_3\9\2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/testProject2.dir/Square.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\VsCodeProjects\Netologiya\Module_3\9\2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/testProject2.dir/Square.cpp.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testProject2.dir/Square.cpp.obj -MF CMakeFiles\testProject2.dir\Square.cpp.obj.d -o CMakeFiles\testProject2.dir\Square.cpp.obj -c C:\VsCodeProjects\Netologiya\Module_3\9\2\Square.cpp
 
 CMakeFiles/testProject2.dir/Square.cpp.i: cmake_force
@@ -211,64 +197,78 @@ CMakeFiles/testProject2.dir/Square.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/testProject2.dir/Square.cpp.s"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\VsCodeProjects\Netologiya\Module_3\9\2\Square.cpp -o CMakeFiles\testProject2.dir\Square.cpp.s
 
-CMakeFiles/testProject2.dir/Triangle.cpp.obj: CMakeFiles/testProject2.dir/flags.make
-CMakeFiles/testProject2.dir/Triangle.cpp.obj: C:/VsCodeProjects/Netologiya/Module_3/9/2/Triangle.cpp
-CMakeFiles/testProject2.dir/Triangle.cpp.obj: CMakeFiles/testProject2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\VsCodeProjects\Netologiya\Module_3\9\2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/testProject2.dir/Triangle.cpp.obj"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testProject2.dir/Triangle.cpp.obj -MF CMakeFiles\testProject2.dir\Triangle.cpp.obj.d -o CMakeFiles\testProject2.dir\Triangle.cpp.obj -c C:\VsCodeProjects\Netologiya\Module_3\9\2\Triangle.cpp
+CMakeFiles/testProject2.dir/Parallelogram.cpp.obj: CMakeFiles/testProject2.dir/flags.make
+CMakeFiles/testProject2.dir/Parallelogram.cpp.obj: C:/VsCodeProjects/Netologiya/Module_3/9/2/Parallelogram.cpp
+CMakeFiles/testProject2.dir/Parallelogram.cpp.obj: CMakeFiles/testProject2.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\VsCodeProjects\Netologiya\Module_3\9\2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/testProject2.dir/Parallelogram.cpp.obj"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testProject2.dir/Parallelogram.cpp.obj -MF CMakeFiles\testProject2.dir\Parallelogram.cpp.obj.d -o CMakeFiles\testProject2.dir\Parallelogram.cpp.obj -c C:\VsCodeProjects\Netologiya\Module_3\9\2\Parallelogram.cpp
 
-CMakeFiles/testProject2.dir/Triangle.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/testProject2.dir/Triangle.cpp.i"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\VsCodeProjects\Netologiya\Module_3\9\2\Triangle.cpp > CMakeFiles\testProject2.dir\Triangle.cpp.i
+CMakeFiles/testProject2.dir/Parallelogram.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/testProject2.dir/Parallelogram.cpp.i"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\VsCodeProjects\Netologiya\Module_3\9\2\Parallelogram.cpp > CMakeFiles\testProject2.dir\Parallelogram.cpp.i
 
-CMakeFiles/testProject2.dir/Triangle.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/testProject2.dir/Triangle.cpp.s"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\VsCodeProjects\Netologiya\Module_3\9\2\Triangle.cpp -o CMakeFiles\testProject2.dir\Triangle.cpp.s
+CMakeFiles/testProject2.dir/Parallelogram.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/testProject2.dir/Parallelogram.cpp.s"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\VsCodeProjects\Netologiya\Module_3\9\2\Parallelogram.cpp -o CMakeFiles\testProject2.dir\Parallelogram.cpp.s
 
-CMakeFiles/testProject2.dir/main.cpp.obj: CMakeFiles/testProject2.dir/flags.make
-CMakeFiles/testProject2.dir/main.cpp.obj: C:/VsCodeProjects/Netologiya/Module_3/9/2/main.cpp
-CMakeFiles/testProject2.dir/main.cpp.obj: CMakeFiles/testProject2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\VsCodeProjects\Netologiya\Module_3\9\2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/testProject2.dir/main.cpp.obj"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testProject2.dir/main.cpp.obj -MF CMakeFiles\testProject2.dir\main.cpp.obj.d -o CMakeFiles\testProject2.dir\main.cpp.obj -c C:\VsCodeProjects\Netologiya\Module_3\9\2\main.cpp
+CMakeFiles/testProject2.dir/Rhombus.cpp.obj: CMakeFiles/testProject2.dir/flags.make
+CMakeFiles/testProject2.dir/Rhombus.cpp.obj: C:/VsCodeProjects/Netologiya/Module_3/9/2/Rhombus.cpp
+CMakeFiles/testProject2.dir/Rhombus.cpp.obj: CMakeFiles/testProject2.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\VsCodeProjects\Netologiya\Module_3\9\2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/testProject2.dir/Rhombus.cpp.obj"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testProject2.dir/Rhombus.cpp.obj -MF CMakeFiles\testProject2.dir\Rhombus.cpp.obj.d -o CMakeFiles\testProject2.dir\Rhombus.cpp.obj -c C:\VsCodeProjects\Netologiya\Module_3\9\2\Rhombus.cpp
 
-CMakeFiles/testProject2.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/testProject2.dir/main.cpp.i"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\VsCodeProjects\Netologiya\Module_3\9\2\main.cpp > CMakeFiles\testProject2.dir\main.cpp.i
+CMakeFiles/testProject2.dir/Rhombus.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/testProject2.dir/Rhombus.cpp.i"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\VsCodeProjects\Netologiya\Module_3\9\2\Rhombus.cpp > CMakeFiles\testProject2.dir\Rhombus.cpp.i
 
-CMakeFiles/testProject2.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/testProject2.dir/main.cpp.s"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\VsCodeProjects\Netologiya\Module_3\9\2\main.cpp -o CMakeFiles\testProject2.dir\main.cpp.s
+CMakeFiles/testProject2.dir/Rhombus.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/testProject2.dir/Rhombus.cpp.s"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\VsCodeProjects\Netologiya\Module_3\9\2\Rhombus.cpp -o CMakeFiles\testProject2.dir\Rhombus.cpp.s
+
+CMakeFiles/testProject2.dir/FiguresException.cpp.obj: CMakeFiles/testProject2.dir/flags.make
+CMakeFiles/testProject2.dir/FiguresException.cpp.obj: C:/VsCodeProjects/Netologiya/Module_3/9/2/FiguresException.cpp
+CMakeFiles/testProject2.dir/FiguresException.cpp.obj: CMakeFiles/testProject2.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\VsCodeProjects\Netologiya\Module_3\9\2\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/testProject2.dir/FiguresException.cpp.obj"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testProject2.dir/FiguresException.cpp.obj -MF CMakeFiles\testProject2.dir\FiguresException.cpp.obj.d -o CMakeFiles\testProject2.dir\FiguresException.cpp.obj -c C:\VsCodeProjects\Netologiya\Module_3\9\2\FiguresException.cpp
+
+CMakeFiles/testProject2.dir/FiguresException.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/testProject2.dir/FiguresException.cpp.i"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\VsCodeProjects\Netologiya\Module_3\9\2\FiguresException.cpp > CMakeFiles\testProject2.dir\FiguresException.cpp.i
+
+CMakeFiles/testProject2.dir/FiguresException.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/testProject2.dir/FiguresException.cpp.s"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\VsCodeProjects\Netologiya\Module_3\9\2\FiguresException.cpp -o CMakeFiles\testProject2.dir\FiguresException.cpp.s
 
 # Object files for target testProject2
 testProject2_OBJECTS = \
-"CMakeFiles/testProject2.dir/EquilateralTriangle.cpp.obj" \
+"CMakeFiles/testProject2.dir/main.cpp.obj" \
 "CMakeFiles/testProject2.dir/Figure.cpp.obj" \
-"CMakeFiles/testProject2.dir/FiguresException.cpp.obj" \
+"CMakeFiles/testProject2.dir/Triangle.cpp.obj" \
+"CMakeFiles/testProject2.dir/RightTriangle.cpp.obj" \
 "CMakeFiles/testProject2.dir/IsoscelesTriangle.cpp.obj" \
-"CMakeFiles/testProject2.dir/Parallelogram.cpp.obj" \
+"CMakeFiles/testProject2.dir/EquilateralTriangle.cpp.obj" \
 "CMakeFiles/testProject2.dir/Quadrangle.cpp.obj" \
 "CMakeFiles/testProject2.dir/Rectangle.cpp.obj" \
-"CMakeFiles/testProject2.dir/Rhombus.cpp.obj" \
-"CMakeFiles/testProject2.dir/RightTriangle.cpp.obj" \
 "CMakeFiles/testProject2.dir/Square.cpp.obj" \
-"CMakeFiles/testProject2.dir/Triangle.cpp.obj" \
-"CMakeFiles/testProject2.dir/main.cpp.obj"
+"CMakeFiles/testProject2.dir/Parallelogram.cpp.obj" \
+"CMakeFiles/testProject2.dir/Rhombus.cpp.obj" \
+"CMakeFiles/testProject2.dir/FiguresException.cpp.obj"
 
 # External object files for target testProject2
 testProject2_EXTERNAL_OBJECTS =
 
-testProject2.exe: CMakeFiles/testProject2.dir/EquilateralTriangle.cpp.obj
+testProject2.exe: CMakeFiles/testProject2.dir/main.cpp.obj
 testProject2.exe: CMakeFiles/testProject2.dir/Figure.cpp.obj
-testProject2.exe: CMakeFiles/testProject2.dir/FiguresException.cpp.obj
+testProject2.exe: CMakeFiles/testProject2.dir/Triangle.cpp.obj
+testProject2.exe: CMakeFiles/testProject2.dir/RightTriangle.cpp.obj
 testProject2.exe: CMakeFiles/testProject2.dir/IsoscelesTriangle.cpp.obj
-testProject2.exe: CMakeFiles/testProject2.dir/Parallelogram.cpp.obj
+testProject2.exe: CMakeFiles/testProject2.dir/EquilateralTriangle.cpp.obj
 testProject2.exe: CMakeFiles/testProject2.dir/Quadrangle.cpp.obj
 testProject2.exe: CMakeFiles/testProject2.dir/Rectangle.cpp.obj
-testProject2.exe: CMakeFiles/testProject2.dir/Rhombus.cpp.obj
-testProject2.exe: CMakeFiles/testProject2.dir/RightTriangle.cpp.obj
 testProject2.exe: CMakeFiles/testProject2.dir/Square.cpp.obj
-testProject2.exe: CMakeFiles/testProject2.dir/Triangle.cpp.obj
-testProject2.exe: CMakeFiles/testProject2.dir/main.cpp.obj
+testProject2.exe: CMakeFiles/testProject2.dir/Parallelogram.cpp.obj
+testProject2.exe: CMakeFiles/testProject2.dir/Rhombus.cpp.obj
+testProject2.exe: CMakeFiles/testProject2.dir/FiguresException.cpp.obj
 testProject2.exe: CMakeFiles/testProject2.dir/build.make
 testProject2.exe: CMakeFiles/testProject2.dir/linkLibs.rsp
 testProject2.exe: CMakeFiles/testProject2.dir/objects1.rsp

@@ -1,4 +1,42 @@
 cmake_minimum_required(VERSION 3.20)
 project(testProject2)
-file(GLOB SOURCES *.cpp)
-add_executable(testProject2 ${SOURCES})
+
+set (PROJECT_NAME
+    testProject2
+)
+
+set (SOURCES 
+    main.cpp
+    Figure.cpp
+
+    Triangle.cpp
+    RightTriangle.cpp
+    IsoscelesTriangle.cpp
+    EquilateralTriangle.cpp
+
+    Quadrangle.cpp
+    Rectangle.cpp
+    Square.cpp
+    Parallelogram.cpp
+    Rhombus.cpp
+    FiguresException.cpp
+)
+
+set (HEADERS  
+    Figure.h
+
+    Triangle.h
+    RightTriangle.h
+    IsoscelesTriangle.h
+    EquilateralTriangle.h
+
+    Quadrangle.h
+    Rectangle.h
+    Square.h
+    Parallelogram.h
+    Rhombus.h
+
+    FiguresException.h
+)
+
+add_executable(testProject2 ${SOURCES} ${HEADERS})
