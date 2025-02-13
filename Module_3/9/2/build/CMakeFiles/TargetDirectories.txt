@@ -1,3 +1,0 @@
-C:/VsCodeProjects/Netologiya/Module_3/9/2/build/CMakeFiles/testProject2.dir
-C:/VsCodeProjects/Netologiya/Module_3/9/2/build/CMakeFiles/edit_cache.dir
-C:/VsCodeProjects/Netologiya/Module_3/9/2/build/CMakeFiles/rebuild_cache.dir
