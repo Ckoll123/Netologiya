@@ -1,0 +1,46 @@
+cmake_minimum_required(VERSION 3.20)
+project(dynamicLibProject2)
+
+set (PROJECT_NAME
+dynamicLibProject2
+)
+
+set (SOURCES 
+    Figure.cpp
+
+    Triangle.cpp
+    RightTriangle.cpp
+    IsoscelesTriangle.cpp
+    EquilateralTriangle.cpp
+
+    Quadrangle.cpp
+    Rectangle.cpp
+    Square.cpp
+    Parallelogram.cpp
+    Rhombus.cpp
+    FiguresException.cpp
+)
+
+set (HEADERS  
+    Figure.h
+
+    Triangle.h
+    RightTriangle.h
+    IsoscelesTriangle.h
+    EquilateralTriangle.h
+
+    Quadrangle.h
+    Rectangle.h
+    Square.h
+    Parallelogram.h
+    Rhombus.h
+
+    FiguresException.h
+)
+
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+
+add_library(dynamicLib2 SHARED ${SOURCES} ${HEADERS})
+add_executable(${PROJECT_NAME} main.cpp)
+
+target_link_libraries(${PROJECT_NAME} dynamicLib2)
