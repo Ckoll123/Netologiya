@@ -1,0 +1,39 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++.exe сборка активного файла",
+            "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "${fileDirname}\\Transport.cpp",
+                "${fileDirname}\\LandTransport.cpp",
+                "${fileDirname}\\CamelFast.cpp",
+                "${fileDirname}\\Camel.cpp",
+                "${fileDirname}\\Centaur.cpp",
+                "${fileDirname}\\AllTerrainBoots.cpp",
+                "${fileDirname}\\AirTransport.cpp",
+                "${fileDirname}\\Eagle.cpp",
+                "${fileDirname}\\FlyingCarpet.cpp",
+                "${fileDirname}\\Broom.cpp",
+                "${fileDirname}\\RaceCoordinator.cpp"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Задача создана отладчиком."
+        }
+    ],
+    "version": "2.0.0"
+}
