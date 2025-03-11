@@ -6,5 +6,6 @@
 class Centaur : public LandTransport {
 public:
     Centaur();
+    virtual ~Centaur() override {};
     virtual float move(float distance) override;
 };

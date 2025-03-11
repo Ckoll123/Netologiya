@@ -56,6 +56,7 @@ public:
     std::string getLastParticipantName() const;
     void raceStart();
     float getPatricipantResult(int number);
+    void reset();
 
 private:
     void sortResultsFastestFirst();
@@ -73,14 +74,6 @@ private:
     int _eagleCounter;
     int _camelFastCounter;
     int _carpetCounter;
-
-    // AllTerrainBoots* _ptrBoots;
-    // Broom* _ptrBroom;
-    // Camel* _ptrCamel;
-    // Centaur* _ptrCentaur;
-    // Eagle* _ptrEagle;
-    // CamelFast* _ptrCamelFast;
-    // FlyingCarpet* _ptrCarpet;
 };
 
 }   // race namespace

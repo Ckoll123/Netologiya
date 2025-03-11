@@ -5,6 +5,7 @@
 class Transport{
 public:
     Transport(std::string name, int velocity);
+    virtual ~Transport(){};
     std::string getName() const;
     int getVelocity() const;
 

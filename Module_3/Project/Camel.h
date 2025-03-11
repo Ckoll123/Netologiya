@@ -6,6 +6,7 @@
 class Camel : public LandTransport {
 public:
     Camel();
+    virtual ~Camel() override {};
     float getRestDurationLast() const;
 
     virtual float move(float distance) override;

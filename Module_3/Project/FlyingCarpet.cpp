@@ -12,7 +12,7 @@ float FlyingCarpet::move(float distance){
     else if (distance < 10000) setDistanceReductionFactorInPercent(10);
     else setDistanceReductionFactorInPercent(5);
     
-    distance *= (1 - getDistanceReductionFactorInPercent());
+    distance *= (1 - (getDistanceReductionFactorInPercent() / 100));
     travelingHours = distance / getVelocity();
 
     return travelingHours;

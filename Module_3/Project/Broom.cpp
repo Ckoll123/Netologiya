@@ -1,7 +1,7 @@
 #include "Broom.h"
 
 Broom::Broom() : 
-    AirTransport("Метла", 10, 0)
+    AirTransport("Метла", 20, 0)
 {}
 
 
@@ -10,7 +10,7 @@ float Broom::move(float distance){
 
     setDistanceReductionFactorInPercent(distance / 1000);
     
-    distance *= (1 - getDistanceReductionFactorInPercent());
+    distance *= (1 - (getDistanceReductionFactorInPercent() / 100));
     travelingHours = distance / getVelocity();
 
     return travelingHours;

@@ -8,7 +8,7 @@ Eagle::Eagle() :
 float Eagle::move(float distance){
     float travelingHours{0};
 
-    distance *= (1 - getDistanceReductionFactorInPercent());
+    distance *= (1 - (getDistanceReductionFactorInPercent() / 100));
     travelingHours = distance / getVelocity();
 
     return travelingHours;

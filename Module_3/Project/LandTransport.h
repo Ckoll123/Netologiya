@@ -6,6 +6,7 @@
 class LandTransport : public Transport{
 public:
     LandTransport(std::string name, int velocity, int timeToRest, int restDurationFirst);
+    virtual ~LandTransport(){};
     int getTravelTimeToStop() const;
     int getRestDurationFirst() const;
 

@@ -5,14 +5,8 @@ namespace race {
 RaceCoordinator::RaceCoordinator() :
     _raceType(RaceType::NONE),
     _distance(0),
-    _numberOfParticipants(1),
+    _numberOfParticipants(0),
     _raceParticipants(),
-    // _ptrBroom(nullptr),
-    // _ptrCamel(nullptr),
-    // _ptrCentaur(nullptr),
-    // _ptrEagle(nullptr),
-    // _ptrCamelFast(nullptr),
-    // _ptrCarpet(nullptr),
     _bootsCounter(0),
     _broomCounter(0),
     _camelCounter(0),
@@ -23,7 +17,7 @@ RaceCoordinator::RaceCoordinator() :
 {}
 
 RaceCoordinator::~RaceCoordinator(){
-    for (ParticipantData participantData : _raceParticipants){
+    for (ParticipantData& participantData : _raceParticipants){
         delete participantData.participant;
     }
 }
@@ -41,7 +35,8 @@ RaceType RaceCoordinator::getRaceType() const{
 
 
 void RaceCoordinator::setDistance(float distance){
-    if (distance > 0) _distance = distance;
+    if (distance > 0) 
+        _distance = distance;
     else 
         throw std::invalid_argument("Длина дистанции должна быть положительная");
 }
@@ -57,88 +52,108 @@ void RaceCoordinator::addParticipant(int participant){
     Participants member = static_cast<Participants>(participant);
     switch (member)
     {
-    case Participants::ALL_TERRAIN_BOOTS:
-        // if (!_ptrBoots){
-            // _ptrBoots = new AllTerrainBoots();
-        if (!_bootsCounter){
-            _raceParticipants.push_back(ParticipantData() = { .participant = new AllTerrainBoots(), .result = 0 });
-            _numberOfParticipants++;
-        }
-        else 
-            throw std::invalid_argument("Данное ТС уже зарегестрировано");
-        break;
+        case Participants::ALL_TERRAIN_BOOTS:
+            if (_raceType == RaceType::AIR){
+                throw std::invalid_argument( "Попытка зарегистрировать неправильный тип транспортного средства!");
+            }
 
-    case Participants::BROOM:
-        // if (!_ptrBroom){
-            // _ptrBroom = new Broom();
-        if (!_broomCounter){
-            _raceParticipants.push_back(ParticipantData() = { .participant = new Broom(), .result = 0 });
-            _numberOfParticipants++;
-        }
-        else 
-            throw std::invalid_argument("Данное ТС уже зарегестрировано");
-        break;
+            if (!_bootsCounter){
+                _raceParticipants.push_back(ParticipantData() = { .participant = new AllTerrainBoots(), .result = 0 });
+                _bootsCounter++;
+                _numberOfParticipants++;
+            }
+            else 
+                throw std::invalid_argument( AllTerrainBoots().getName() + " уже зарегестрированы");
+            break;
 
-    case Participants::CAMEL:
-        // if (!_ptrCamel){
-            // _ptrCamel = new Camel();
-        if (!_camelCounter){
-            _raceParticipants.push_back(ParticipantData() = { .participant = new Camel(), .result = 0 });
-            _numberOfParticipants++;
-        }
-        else 
-            throw std::invalid_argument("Данное ТС уже зарегестрировано");
-        break;
+        case Participants::BROOM:
+            if (_raceType == RaceType::LAND){
+                throw std::invalid_argument( "Попытка зарегистрировать неправильный тип транспортного средства!");
+            }
 
-    case Participants::CENTAUR:
-        // if (!_ptrCentaur){
-            // _ptrCentaur = new Centaur();
-        if (!_centaurCounter){
-            _raceParticipants.push_back(ParticipantData() = { .participant = new Centaur(), .result = 0 });
-            _numberOfParticipants++;
-        }
-        else 
-            throw std::invalid_argument("Данное ТС уже зарегестрировано");
-        break;
+            if (!_broomCounter){
+                _raceParticipants.push_back(ParticipantData() = { .participant = new Broom(), .result = 0 });
+                _broomCounter++;
+                _numberOfParticipants++;
+            }
+            else 
+                throw std::invalid_argument( Broom().getName() + " уже зарегестрирована");
+            break;
 
-    case Participants::EAGLE:
-        // if (!_ptrEagle){
-            // _ptrEagle = new Eagle();
-        if (!_eagleCounter){
-            _raceParticipants.push_back(ParticipantData() = { .participant = new Eagle(), .result = 0 });
-            _numberOfParticipants++;
-        }
-        else 
-            throw std::invalid_argument("Данное ТС уже зарегестрировано");
-        break;
+        case Participants::CAMEL:
+            if (_raceType == RaceType::AIR){
+                throw std::invalid_argument( "Попытка зарегистрировать неправильный тип транспортного средства!");
+            }
 
-    case Participants::CAMEL_FAST:
-        // if (!_ptrCamelFast){
-            // _ptrCamelFast = new CamelFast();
-        if (!_camelFastCounter){
-            _raceParticipants.push_back(ParticipantData() = { .participant = new CamelFast(), .result = 0 });
-            _numberOfParticipants++;
-        }
-        else 
-            throw std::invalid_argument("Данное ТС уже зарегестрировано");
-        break;
+            if (!_camelCounter){
+                _raceParticipants.push_back(ParticipantData() = { .participant = new Camel(), .result = 0 });
+                _camelCounter++;
+                _numberOfParticipants++;
+            }
+            else 
+                throw std::invalid_argument( Camel().getName() + " уже зарегестрирован");
+            break;
 
-    case Participants::FLYING_CARPET:
-        // if (!_ptrCarpet){
-            // _ptrCarpet = new FlyingCarpet();
-        if (!_carpetCounter){
-            _raceParticipants.push_back(ParticipantData() = { .participant = new FlyingCarpet(), .result = 0 });
-            _numberOfParticipants++;
-        }
-        else 
-            throw std::invalid_argument("Данное ТС уже зарегестрировано");
-        break;
-    
-    default:
-        throw std::invalid_argument("Неизвестное ТС");
-        break;
-    }
+        case Participants::CENTAUR:
+            if (_raceType == RaceType::AIR){
+                throw std::invalid_argument( "Попытка зарегистрировать неправильный тип транспортного средства!");
+            }
 
+            if (!_centaurCounter){
+                _raceParticipants.push_back(ParticipantData() = { .participant = new Centaur(), .result = 0 });
+                _centaurCounter++;
+                _numberOfParticipants++;
+            }
+            else 
+                throw std::invalid_argument( Centaur().getName() + " уже зарегестрирован");
+            break;
+
+        case Participants::EAGLE:
+            if (_raceType == RaceType::LAND){
+                throw std::invalid_argument( "Попытка зарегистрировать неправильный тип транспортного средства!");
+            }
+
+            if (!_eagleCounter){
+                _raceParticipants.push_back(ParticipantData() = { .participant = new Eagle(), .result = 0 });
+                _eagleCounter++;
+                _numberOfParticipants++;
+            }
+            else 
+                throw std::invalid_argument( Eagle().getName() + " уже зарегестрирован");
+            break;
+
+        case Participants::CAMEL_FAST:
+            if (_raceType == RaceType::AIR){
+                throw std::invalid_argument( "Попытка зарегистрировать неправильный тип транспортного средства!");
+            }
+
+            if (!_camelFastCounter){
+                _raceParticipants.push_back(ParticipantData() = { .participant = new CamelFast(), .result = 0 });
+                _camelFastCounter++;
+                _numberOfParticipants++;
+            }
+            else 
+                throw std::invalid_argument( CamelFast().getName() + " уже зарегестрирован");
+            break;
+
+        case Participants::FLYING_CARPET:
+            if (_raceType == RaceType::LAND){
+                throw std::invalid_argument( "Попытка зарегистрировать неправильный тип транспортного средства!");
+            }
+
+            if (!_carpetCounter){
+                _raceParticipants.push_back(ParticipantData() = { .participant = new FlyingCarpet(), .result = 0 });
+                _carpetCounter++;
+                _numberOfParticipants++;
+            }
+            else 
+                throw std::invalid_argument( FlyingCarpet().getName() + " уже зарегестрирован");
+            break;
+        
+        default:
+            throw std::invalid_argument("Неизвестное ТС");
+            break;
+    }   // switch
 }
 
 
@@ -148,7 +163,7 @@ int RaceCoordinator::getParticipantsNumber(){
 
 
 std::string RaceCoordinator::getParticipantName(int number) const{
-    return _raceParticipants.at(number).participant->getName();
+    return _raceParticipants.at(number).participant->getName(); // Добавить проверку на пустой? Ловить исключение at?
 }
 
 
@@ -164,9 +179,13 @@ std::string RaceCoordinator::getLastParticipantName() const{
 
 
 void RaceCoordinator::raceStart(){
-    for (auto raceParticipant : _raceParticipants){
+    for (auto& raceParticipant : _raceParticipants){
         raceParticipant.result = raceParticipant.participant->move(_distance);
     }
+
+    // for (int i = 0; i < _numberOfParticipants; i++){
+    //     _raceParticipants.at(i).result = _raceParticipants.at(i).participant->move(_distance);
+    // }
 
     sortResultsFastestFirst();
 }
@@ -191,6 +210,17 @@ void RaceCoordinator::sortResultsFastestFirst(){
 
 float RaceCoordinator::getPatricipantResult(int number){
     return _raceParticipants.at(number).result;
+}
+
+
+void RaceCoordinator::reset(){
+    _distance = 0;
+    _numberOfParticipants = 0;
+
+    for (auto& participantData : _raceParticipants){
+        delete participantData.participant;
+    }
+    std::vector<ParticipantData>().swap(_raceParticipants);
 }
 
 }   // race namespace

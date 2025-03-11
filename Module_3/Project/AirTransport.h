@@ -6,7 +6,8 @@
 class AirTransport : public Transport{
 public:
     AirTransport(std::string name, int velocity, float distanceReductionFactorinPercent);
-    int getDistanceReductionFactorInPercent() const;
+    virtual ~AirTransport(){};
+    float getDistanceReductionFactorInPercent() const;
 
     virtual float move(float distance) = 0;
 
@@ -14,5 +15,5 @@ protected:
     void setDistanceReductionFactorInPercent(float newFactor);
 
 private:
-    int _distanceReductionFactorInPercent;
+    float _distanceReductionFactorInPercent;
 };
