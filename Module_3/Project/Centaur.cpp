@@ -12,8 +12,12 @@ float Centaur::move(float distance) {
 
     travelingHours = distance / getVelocity();
     stopsNumber = travelingHours / getTravelTimeToStop();
-    restingTime = stopsNumber * getRestDurationFirst();
-    travelingHours += restingTime;
+    if (stopsNumber){
+        restingTime = stopsNumber * getRestDurationFirst();
+        if (!(static_cast<int>(travelingHours) % getTravelTimeToStop()))
+            restingTime -= getRestDurationFirst();
+        travelingHours += restingTime;
+    }
 
     return travelingHours;
 }

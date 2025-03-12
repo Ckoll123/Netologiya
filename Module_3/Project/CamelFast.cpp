@@ -13,8 +13,16 @@ float CamelFast::move(float distance){
 
     travelingHours = distance / getVelocity();
     stopsNumber = travelingHours / getTravelTimeToStop();
-    restingTime = (stopsNumber - 2) * getRestDurationLast() + getRestDurationFirst() + _restDurationTimeSecond;
-    travelingHours += restingTime;
+    if (stopsNumber){
+        if (stopsNumber >= 2)
+            restingTime = (stopsNumber - 2) * getRestDurationLast() + getRestDurationFirst() + _restDurationTimeSecond;
+        else
+            restingTime = getRestDurationFirst() + _restDurationTimeSecond;
+        
+        if (!(static_cast<int>(travelingHours) % getTravelTimeToStop()))
+        restingTime -= getRestDurationLast();
+        travelingHours += restingTime;
+    }
 
     return travelingHours;
 }

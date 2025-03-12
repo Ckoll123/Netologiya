@@ -13,8 +13,12 @@ float AllTerrainBoots::move(float distance){
 
     travelingHours = distance / getVelocity();
     stopsNumber = travelingHours / getTravelTimeToStop();
-    restingTime = (stopsNumber - 1) * _restDurationLast + getRestDurationFirst();
-    travelingHours += restingTime;
+    if (stopsNumber){
+        restingTime = (stopsNumber - 1) * _restDurationLast + getRestDurationFirst();
+        if (!(static_cast<int>(travelingHours) % getTravelTimeToStop()))
+            restingTime -= _restDurationLast;
+        travelingHours += restingTime;
+    }
 
     return travelingHours;
 }
