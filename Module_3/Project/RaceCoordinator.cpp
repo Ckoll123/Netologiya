@@ -182,11 +182,7 @@ void RaceCoordinator::raceStart(){
     for (auto& raceParticipant : _raceParticipants){
         raceParticipant.result = raceParticipant.participant->move(_distance);
     }
-
-    // for (int i = 0; i < _numberOfParticipants; i++){
-    //     _raceParticipants.at(i).result = _raceParticipants.at(i).participant->move(_distance);
-    // }
-
+    
     sortResultsFastestFirst();
 }
 
