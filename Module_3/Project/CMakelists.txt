@@ -1,0 +1,49 @@
+cmake_minimum_required(VERSION 3.20)
+project(module3_project)
+
+set (PROJECT_NAME
+    module3_project
+)
+
+set (SOURCES 
+    Transport.cpp
+
+    AirTransport.cpp
+    LandTransport.cpp
+    
+    Camel.cpp
+    CamelFast.cpp
+    Centaur.cpp
+    AllTerrainBoots.cpp
+
+    Eagle.cpp
+    Broom.cpp
+    FlyingCarpet.cpp
+    
+    RaceCoordinator.cpp
+)
+
+set (HEADERS  
+    Transport.h
+
+    AirTransport.h
+    LandTransport.h
+
+    Camel.h
+    CamelFast.h
+    Centaur.h
+    AllTerrainBoots.h
+
+    Eagle.h
+    Broom.h
+    FlyingCarpet.h
+
+    RaceCoordinator.h
+)
+
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+
+add_library(dynamicLib SHARED ${SOURCES} ${HEADERS})
+add_executable(${PROJECT_NAME} main.cpp)
+
+target_link_libraries(${PROJECT_NAME} dynamicLib)
