@@ -49,6 +49,7 @@ const ArrayInt& ArrayInt::operator=(const ArrayInt &right){
 
         for (int i = 0; i < size; i++)
             {arr[i] = right.arr[i];}
+        currentSize = right.currentSize;
     }
 
     return *this;
