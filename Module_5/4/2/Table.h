@@ -28,7 +28,7 @@ public:
         return std::pair<int, int>{_rows, _columns};
     }
     
-    T*& operator[](int subscript){
+    T* operator[](int subscript){
         return _pptr[subscript];
     }
 
