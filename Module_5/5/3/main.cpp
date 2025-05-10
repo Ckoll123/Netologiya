@@ -5,8 +5,34 @@ template <typename T>
 class MyVector {
 public:
     MyVector() : pData(nullptr), _size(0), _capacity(0) {}
+    
+    MyVector(const MyVector& copy) :
+        _size(copy.size()),
+        _capacity(copy.size())
+    {
+        arr = new int[_capacity];
+        for (int i = 0; i < _size; i++)
+            {arr[i] = copy.at(i);}
+    }
+
     ~MyVector() {
         delete[] pData;
+    }
+
+    const MyVector& operator=(const MyVector& right){
+        if (&right != this){
+            if(_capacity != right.capacity()){
+                delete[] arr;
+                _capacity = right.capacity();
+                arr = new int[_capacity];
+            }
+    
+            _size = right.size();
+            for (int i = 0; i < _size; i++)
+                {arr[i] = right.at(i);}
+        }
+    
+        return *this;
     }
 
     int size() const {
