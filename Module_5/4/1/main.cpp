@@ -2,16 +2,18 @@
 #include <vector>
 
 template <typename T>
-T square(T value){
+T square(const T& value){
     return value * value;
 }
 
 template<typename T>
-std::vector<T> square(std::vector<T> vec){
-    for (T& value : vec){
-        value *= value;
+std::vector<T> square(const std::vector<T>& vec){
+    std::vector<T> result;
+    result.reserve(vec.size());
+    for (const T& value : vec){
+        result.push_back(value * value);
     }
-    return vec;
+    return result;
 }
 
 

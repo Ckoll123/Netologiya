@@ -3,6 +3,7 @@
 #include <iostream>
 #include <stdexcept>
 
+
 template <typename T>
 class Table
 {
@@ -27,15 +28,38 @@ public:
     std::pair<int, int> getSize() const{
         return std::pair<int, int>{_rows, _columns};
     }
+
+    class ColumnProxy {
+    public:
+        ColumnProxy(T* p_row, int columns) : _p_row(p_row), _columns(columns) {}
+        T& operator[](size_t subscript) {
+            if ((subscript < 0) || (subscript >= _columns)){
+                throw std::out_of_range("Невозможный индекс столбца");
+            }
+            return _p_row[subscript];
+        }
+    private:
+        T* _p_row;
+        const int& _columns;
+    };
     
-    T* operator[](int subscript){
-        return _pptr[subscript];
+    ColumnProxy operator[](int subscript){
+        if ((subscript < 0) || (subscript >= _rows)){
+            throw std::out_of_range("Невозможный индекс строки");
+        }
+        return ColumnProxy(_pptr[subscript], _columns);
     }
 
-    T* operator[](int subscript) const{
-        return _pptr[subscript];
+    ColumnProxy operator[](int subscript) const{
+        if ((subscript < 0) || (subscript >= _rows)){
+            throw std::out_of_range("Невозможный индекс строки");
+        }
+        return ColumnProxy(_pptr[subscript], _columns);
     }
 
+    Table(const Table&) = delete;
+	Table& operator= (const Table&) = delete;
+    
 private:
     int _rows;
     int _columns;
