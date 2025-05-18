@@ -14,9 +14,13 @@ public:
         const std::vector<double>& middle) :
         m_down{ down }, m_upper{ upper }, m_middle{ middle }
     {};
-    ~tridiagonal_matrix() { std::cout << "destructor called\n"; }
+    ~tridiagonal_matrix() { std::cout << "destructor called\n"; };
 
-    // clone()
+    std::unique_ptr<tridiagonal_matrix> clone() const {
+        return std::make_unique<tridiagonal_matrix>(m_down, m_upper, m_middle);
+    }
+
+    void func(){};
 };
 
 int main()
@@ -30,7 +34,9 @@ int main()
         middle
     );
 
+    matrix->func();
     auto matrix_clone = matrix->clone();
+    matrix->func();
 
     return 0;
 }
