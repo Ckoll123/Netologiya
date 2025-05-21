@@ -1,6 +1,11 @@
 #include <iostream>
 #include <exception>
 
+struct Person {
+    std::string name;
+    int age;
+    void greet() { std::cout << "Hello, " << name << "!\n"; }
+};
 
 template <typename T>
 class Unique_ptr{
@@ -13,10 +18,15 @@ public:
         }
     }
 
-    T& operator=(const T& data) = delete;
+    Unique_ptr& operator=(const Unique_ptr& data) = delete;
     T& operator*(){
         if(_data) return *_data;
-        else throw std::logic_error("Указатеь пуст!");
+        else throw std::logic_error("Указатель пуст!");
+    }
+
+    T* operator->(){
+        if(_data) return _data;
+        else throw std::logic_error("Указатель пуст!");
     }
 
     T* release(){
@@ -31,6 +41,8 @@ private:
 
 
 int main(){
+    Unique_ptr user_ptr2(new Person{"Alice", 30});
+
     Unique_ptr user_ptr(new int);
     *user_ptr = 2;
     std::cout << "user_ptr = " <<  *user_ptr << std::endl;
@@ -38,7 +50,7 @@ int main(){
     int* raw_ptr = user_ptr.release();
     // std::cout << "user_ptr = " <<  *user_ptr;
     std::cout << "raw_ptr = " <<  *raw_ptr << std::endl;
-
+    
     delete raw_ptr;
     return 0;
 }
