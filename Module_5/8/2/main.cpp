@@ -26,11 +26,11 @@ public:
 
     }
 
-    big_integer(big_integer&& other) :
+    big_integer(big_integer&& other) noexcept :
         _digits(std::move(other._digits))
     { other._digits = {0}; }
     
-    big_integer& operator=(big_integer&& other){
+    big_integer& operator=(big_integer&& other) noexcept {
         if (this != &other) {
             _digits = std::move(other._digits);
             other._digits = {0};
@@ -44,7 +44,7 @@ public:
         size_t max_len = std::max(_digits.size(), other.getSize());
         int carry = 0;
 
-        for (size_t i = 0; i < max_len || carry; ++i) {
+        for (size_t i = 0; i < max_len || static_cast<size_t>(carry); ++i) {
             int sum = carry;
             if (i < _digits.size()) sum += _digits[i];
             if (i < other.getSize()) sum += other.getDigitElement(i);
@@ -64,7 +64,7 @@ public:
         big_integer result;
 
         int carry = 0;
-        for (size_t i = 0; i < _digits.size() || carry; ++i) {
+        for (size_t i = 0; i < _digits.size() || static_cast<size_t>(carry); ++i) {
             int product = carry;
             if (i < _digits.size()) {
                 product += _digits.at(i) * num;
