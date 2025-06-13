@@ -1,0 +1,13 @@
+version: '27.5.1'
+
+services:
+  db_auth:
+    container_name: my-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=12345
+      - POSTGRES_USER=admin
+    image: "postgres:15.13"
+    volumes:
+      - ./pgdata:/dbdata
