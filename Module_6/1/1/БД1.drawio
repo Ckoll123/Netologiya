@@ -1,0 +1,95 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 YaBrowser/25.4.0.0 Safari/537.36" version="24.7.12">
+  <diagram name="Страница — 1" id="LNn57Oa2k2IVt9UOUZFC">
+    <mxGraphModel dx="1750" dy="1023" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="IZoVtLbHciiS3lVEJnuO-76" value="Жанры" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;html=1;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;locked=1;connectable=0;" vertex="1" parent="1">
+          <mxGeometry x="30" y="40" width="110" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="IZoVtLbHciiS3lVEJnuO-77" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;locked=1;connectable=0;" vertex="1" parent="IZoVtLbHciiS3lVEJnuO-76">
+          <mxGeometry y="30" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="IZoVtLbHciiS3lVEJnuO-78" value="ID" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;fontStyle=1;overflow=hidden;whiteSpace=wrap;html=1;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;locked=1;" vertex="1" parent="IZoVtLbHciiS3lVEJnuO-77">
+          <mxGeometry width="30" height="30" as="geometry">
+            <mxRectangle width="30" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IZoVtLbHciiS3lVEJnuO-79" value="Жанр" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;overflow=hidden;whiteSpace=wrap;html=1;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;locked=1;" vertex="1" parent="IZoVtLbHciiS3lVEJnuO-77">
+          <mxGeometry x="30" width="80" height="30" as="geometry">
+            <mxRectangle width="80" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IZoVtLbHciiS3lVEJnuO-80" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;locked=1;connectable=0;" vertex="1" parent="IZoVtLbHciiS3lVEJnuO-76">
+          <mxGeometry y="60" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="IZoVtLbHciiS3lVEJnuO-81" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=0;overflow=hidden;whiteSpace=wrap;html=1;movable=0;resizable=0;rotatable=0;deletable=0;locked=1;" vertex="1" parent="IZoVtLbHciiS3lVEJnuO-80">
+          <mxGeometry width="30" height="30" as="geometry">
+            <mxRectangle width="30" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IZoVtLbHciiS3lVEJnuO-82" value="Жанр 1" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;whiteSpace=wrap;html=1;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;locked=1;" vertex="1" parent="IZoVtLbHciiS3lVEJnuO-80">
+          <mxGeometry x="30" width="80" height="30" as="geometry">
+            <mxRectangle width="80" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IZoVtLbHciiS3lVEJnuO-83" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;locked=1;connectable=0;" vertex="1" parent="IZoVtLbHciiS3lVEJnuO-76">
+          <mxGeometry y="90" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="IZoVtLbHciiS3lVEJnuO-84" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=0;overflow=hidden;whiteSpace=wrap;html=1;movable=0;resizable=0;rotatable=0;deletable=0;locked=1;" vertex="1" parent="IZoVtLbHciiS3lVEJnuO-83">
+          <mxGeometry width="30" height="30" as="geometry">
+            <mxRectangle width="30" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IZoVtLbHciiS3lVEJnuO-85" value="Жанр 2" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;whiteSpace=wrap;html=1;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;locked=1;" vertex="1" parent="IZoVtLbHciiS3lVEJnuO-83">
+          <mxGeometry x="30" width="80" height="30" as="geometry">
+            <mxRectangle width="80" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IZoVtLbHciiS3lVEJnuO-86" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;locked=1;connectable=0;" vertex="1" parent="IZoVtLbHciiS3lVEJnuO-76">
+          <mxGeometry y="120" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="IZoVtLbHciiS3lVEJnuO-87" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=0;overflow=hidden;whiteSpace=wrap;html=1;movable=0;resizable=0;rotatable=0;deletable=0;locked=1;" vertex="1" parent="IZoVtLbHciiS3lVEJnuO-86">
+          <mxGeometry width="30" height="30" as="geometry">
+            <mxRectangle width="30" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IZoVtLbHciiS3lVEJnuO-88" value="Жанр 3" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;whiteSpace=wrap;html=1;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;locked=1;" vertex="1" parent="IZoVtLbHciiS3lVEJnuO-86">
+          <mxGeometry x="30" width="80" height="30" as="geometry">
+            <mxRectangle width="80" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IZoVtLbHciiS3lVEJnuO-101" value="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;locked=1;connectable=0;" vertex="1" parent="1">
+          <mxGeometry x="30" y="100" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="IZoVtLbHciiS3lVEJnuO-102" value="2" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;locked=1;connectable=0;" vertex="1" parent="1">
+          <mxGeometry x="30" y="130" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="IZoVtLbHciiS3lVEJnuO-103" value="3" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;locked=1;connectable=0;" vertex="1" parent="1">
+          <mxGeometry x="30" y="160" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="IZoVtLbHciiS3lVEJnuO-189" value="&lt;br&gt;&lt;table cellpadding=&quot;5&quot; border=&quot;1&quot; style=&quot;background-color: rgb(255, 255, 255); border: 1px solid rgb(0, 0, 0); border-collapse: collapse;&quot; align=&quot;left&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style=&quot;border-collapse: collapse;&quot; border=&quot;1&quot;&gt;&lt;b&gt;ID&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Жанр&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Исполнитель&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;Исполнитель 1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;Исполнитель 2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;Исполнитель 3&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;Исполнитель 4&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;5&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;Исполнитель 5&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;Исполнитель 6&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="240" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="IZoVtLbHciiS3lVEJnuO-191" value="&lt;br&gt;&lt;table cellpadding=&quot;5&quot; border=&quot;1&quot; style=&quot;background-color: rgb(255, 255, 255); border: 1px solid rgb(0, 0, 0); border-collapse: collapse;&quot; align=&quot;left&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style=&quot;border-collapse: collapse;&quot; border=&quot;1&quot;&gt;&lt;b&gt;ID&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Исполнитель&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Альбом&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Год выпуска&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;Альбом 1&lt;/td&gt;&lt;td&gt;1910&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;Альбом&amp;nbsp;2&lt;/td&gt;&lt;td&gt;1920&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;Альбом 1&lt;/td&gt;&lt;td&gt;1930&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;Альбом 2&lt;/td&gt;&lt;td&gt;1940&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;5&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;Альбом 1&lt;/td&gt;&lt;td&gt;1950&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;Альбом 2&lt;/td&gt;&lt;td&gt;1960&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;7&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;Альбом 1&lt;/td&gt;&lt;td&gt;1970&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;Альбом 2&lt;/td&gt;&lt;td&gt;1980&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;5&lt;/td&gt;&lt;td&gt;Альбом 1&lt;/td&gt;&lt;td&gt;1990&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;5&lt;/td&gt;&lt;td&gt;Альбом 2&lt;/td&gt;&lt;td&gt;2000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;11&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;Альбом 1&lt;/td&gt;&lt;td&gt;2010&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;12&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;Альбом 2&lt;/td&gt;&lt;td&gt;2020&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="470" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="IZoVtLbHciiS3lVEJnuO-194" value="&lt;br&gt;&lt;table cellpadding=&quot;5&quot; border=&quot;1&quot; style=&quot;background-color: rgb(255, 255, 255); border: 1px solid rgb(0, 0, 0); border-collapse: collapse;&quot; align=&quot;left&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style=&quot;border-collapse: collapse;&quot; border=&quot;1&quot;&gt;&lt;b&gt;ID&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Альбом&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Трек&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Длительность&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;Трек 1&lt;/td&gt;&lt;td&gt;2:00&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;Трек 2&lt;/td&gt;&lt;td&gt;2:10&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;Трек 1&lt;/td&gt;&lt;td&gt;2:20&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;Трек 2&lt;/td&gt;&lt;td&gt;2:30&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;5&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;Трек 1&lt;/td&gt;&lt;td&gt;2:40&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;Трек 2&lt;/td&gt;&lt;td&gt;2:50&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;7&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;Трек 1&lt;/td&gt;&lt;td&gt;3:00&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;Трек 2&lt;/td&gt;&lt;td&gt;3:10&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;5&lt;/td&gt;&lt;td&gt;Трек 1&lt;/td&gt;&lt;td&gt;3:20&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;5&lt;/td&gt;&lt;td&gt;Трек 2&lt;/td&gt;&lt;td&gt;3:30&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;11&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;Трек 1&lt;/td&gt;&lt;td&gt;3:40&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;12&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;Трек 2&lt;/td&gt;&lt;td&gt;3:50&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;13&lt;/td&gt;&lt;td&gt;7&lt;/td&gt;&lt;td&gt;Трек 1&lt;/td&gt;&lt;td&gt;4:00&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;14&lt;/td&gt;&lt;td&gt;7&lt;/td&gt;&lt;td&gt;Трек 2&lt;/td&gt;&lt;td&gt;4:10&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;15&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;Трек 1&lt;/td&gt;&lt;td&gt;4:20&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;16&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;Трек 2&lt;/td&gt;&lt;td&gt;4:30&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;17&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;Трек 1&lt;/td&gt;&lt;td&gt;4:40&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;18&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;Трек 2&lt;/td&gt;&lt;td&gt;4:50&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;19&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;Трек 1&lt;/td&gt;&lt;td&gt;5:00&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;20&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;Трек 2&lt;/td&gt;&lt;td&gt;4:50&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;21&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;td&gt;Трек 1&lt;/td&gt;&lt;td&gt;4:40&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;22&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;td&gt;Трек 2&lt;/td&gt;&lt;td&gt;4:30&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;23&lt;/td&gt;&lt;td&gt;12&lt;/td&gt;&lt;td&gt;Трек 1&lt;/td&gt;&lt;td&gt;4:20&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;24&lt;/td&gt;&lt;td&gt;12&lt;/td&gt;&lt;td&gt;Трек 2&lt;/td&gt;&lt;td&gt;4:10&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="760" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="IZoVtLbHciiS3lVEJnuO-195" value="&lt;b&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;Исполнители&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="170" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="IZoVtLbHciiS3lVEJnuO-196" value="&lt;b&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;Альбомы&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="400" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="IZoVtLbHciiS3lVEJnuO-197" value="&lt;b&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;Треки&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="690" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="IZoVtLbHciiS3lVEJnuO-198" value="&lt;b&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;Жанры&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="15" width="140" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
