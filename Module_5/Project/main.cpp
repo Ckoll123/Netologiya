@@ -8,7 +8,7 @@ int main(){
 
     try{
         IniParser parser("filename.ini");
-        auto value1 = parser.get_value<float>("Section1.var1");
+        auto value1 = parser.get_value<double>("Section1.var1");
         std::cout << "Значение в Section1.var1 = " << value1 << std::endl;
 
         auto value2 = parser.get_value<std::string>("Section2.var2");

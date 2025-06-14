@@ -5,7 +5,6 @@
 
 #include <algorithm>
 #include <cctype>
-#include <sstream>
 
 
 class IniParser{
