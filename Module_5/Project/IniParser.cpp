@@ -71,7 +71,7 @@ void IniParser::sectionHandling(std::string& line){
 
 
 void IniParser::variableHandling(std::string& line){
-    if (line.find('=') == std::string::npos) return;
+    if (line.find('=') == std::string::npos) return;    // error could be here
 
     size_t equalSignPos = line.find('=');
     if (equalSignPos == 0 || equalSignPos == line.size() - 1)

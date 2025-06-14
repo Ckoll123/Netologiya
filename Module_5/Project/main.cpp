@@ -18,10 +18,11 @@ int main(){
         std::cout << "Значение в Section10.var1 = " << value3 << std::endl;
     }
     catch(const std::out_of_range& ex){
+        std::cout << ex.what() << std::endl;
         // std::cout << "Не существует указанной секции или переменной" << std::endl;
     }
     catch(const std::exception& ex){
-        std::cout << ex.what();
+        std::cout << ex.what() << std::endl;
     }
 
 

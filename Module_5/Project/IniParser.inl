@@ -1,5 +1,11 @@
-template <typename T>
-T IniParser::get_value(std::string sectionAndVariable){
+template<typename T>
+T IniParser::get_value(std::string sectionAndVariable) {    //вместо тела, можно поставить ; будет просто ошибка компиляции
+    static_assert(sizeof(T) == -1, "not implemented type for get_value");
+}
+
+
+template <>
+inline int IniParser::get_value<int>(std::string sectionAndVariable){
     size_t dot = sectionAndVariable.find('.');
     std::string section = sectionAndVariable.substr(0, dot);
     std::string variable = sectionAndVariable.substr(dot + 1);
@@ -15,27 +21,60 @@ T IniParser::get_value(std::string sectionAndVariable){
             std::cerr << "Данной переменной в секции \"" + section + "\" не существует" << std::endl;
 
             if (!itSection->second.size()){
-                std::cerr << "Секция пуста" << std::endl;
-                throw std::out_of_range{""};
+                throw std::out_of_range{"Секция пуста"};
             }
-            std::cerr << "В секции \"" + section + "\" имеются следующие переменные:" << std::endl;
             printAvailableVars(section);
-            throw std::out_of_range{""};
+            throw std::out_of_range{"В секции \"" + section + "\" имеются следующие переменные:"};
         }
     }
     else{
-        std::cerr << "Данной секции не сущетсвует" << std::endl;
-        throw std::out_of_range{""};
+        throw std::out_of_range{"Данной секции не существует"};
     }
     
     // value = fileParsed.at(section).at(variable);
 
-    T outValue{};
-    std::istringstream iss(value);
-    if (!(iss >> outValue))
-        throw std::runtime_error("Не удалось преобразовать в число");
-    return outValue;
+    return std::stoi(value);
 }
+
+
+template <>
+inline double IniParser::get_value<double>(std::string sectionAndVariable){
+    size_t dot = sectionAndVariable.find('.');
+    std::string section = sectionAndVariable.substr(0, dot);
+    std::string variable = sectionAndVariable.substr(dot + 1);
+    
+    std::string value{};
+    auto itSection = fileParsed.find(section);
+    if (itSection != fileParsed.end()){
+        auto itVariable = itSection->second.find(variable);
+        if (itVariable != itSection->second.end()){
+            value = itVariable->second;
+        }
+        else{
+            std::cerr << "Данной переменной в секции \"" + section + "\" не существует" << std::endl;
+
+            if (!itSection->second.size()){
+                throw std::out_of_range{"Секция пуста"};
+            }
+            printAvailableVars(section);
+            throw std::out_of_range{"В секции \"" + section + "\" имеются следующие переменные:"};
+        }
+    }
+    else{
+        throw std::out_of_range{"Данной секции не существует"};
+    }
+    
+    // value = fileParsed.at(section).at(variable);
+
+    for (char &c : value) {
+        if (c == ',') {
+            c = '.';
+        }
+    }
+
+    return std::stod(value);
+}
+
 
 template <>
 inline std::string IniParser::get_value<std::string>(std::string sectionAndVariable){
@@ -54,17 +93,14 @@ inline std::string IniParser::get_value<std::string>(std::string sectionAndVaria
             std::cerr << "Данной переменной в секции \"" + section + "\" не существует" << std::endl;
 
             if (!itSection->second.size()){
-                std::cerr << "Секция пуста" << std::endl;
-                throw std::out_of_range{""};
+                throw std::out_of_range{"Секция пуста"};
             }
-            std::cerr << "В секции \"" + section + "\" имеются следующие переменные:" << std::endl;
             printAvailableVars(section);
-            throw std::out_of_range{""};
+            throw std::out_of_range{"В секции \"" + section + "\" имеются следующие переменные:"};
         }
     }
     else{
-        std::cerr << "Данной секции не сущетсвует" << std::endl;
-        throw std::out_of_range{""};
+        throw std::out_of_range{"Данной секции не существует"};
     }
 
     return value;
