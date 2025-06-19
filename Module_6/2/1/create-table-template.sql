@@ -40,8 +40,9 @@ CREATE TABLE collection(
     year INTEGER
 );
 
+
 CREATE TABLE trackCollection(  
     id_track INTEGER NOT NULL REFERENCES track(id),
     id_collection INTEGER NOT NULL REFERENCES collection(id),
-    CONSTRAINT PK3 PRIMARY KEY (id_track, id_collection)
+    PRIMARY KEY (id_track, id_collection)
 );
