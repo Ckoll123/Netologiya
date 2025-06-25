@@ -10,6 +10,7 @@
 #include "Sale.h"
 
 void fillTables(Wt::Dbo::Session& session);
+void getPublisherInfo(Wt::Dbo::Session& session);
 
 int main(){
 
@@ -31,10 +32,10 @@ int main(){
         session.mapClass<Stock>("stock");
         session.mapClass<Sale>("sale");
 
-        session.createTables();
+        // session.createTables();
 
-        // fillTables(session);
-
+        fillTables(session);
+        // getPublisherInfo(session);
     }
     catch (const Wt::Dbo::Exception& e)
     {
@@ -122,4 +123,60 @@ void fillTables(Wt::Dbo::Session& session){
     Wt::Dbo::ptr<Sale> psale2 = session.add(std::move(sale2));
 
     transaction.commit();
+}
+
+
+
+void getPublisherInfo(Wt::Dbo::Session& session){
+    std::string input;
+    std::cout << "Введите имя или ID издателя: ";
+    std::cin >> input;
+
+    int publisherId = -1;
+    try {
+        publisherId = std::stoi(input);
+    } catch (...) {}
+
+    Wt::Dbo::ptr<Publisher> targetPublisher;
+
+    if (publisherId != -1) {
+        targetPublisher = session.find<Publisher>().where("id = ?").bind(publisherId);
+    }
+    else {
+        targetPublisher = session.find<Publisher>().where("name = ?").bind(input);
+    }
+
+    if (!targetPublisher) {
+        std::cerr << "Издатель не найден!" << std::endl;
+        return;
+    }
+
+    auto books = session.query<Wt::Dbo::ptr<Book>>("SELECT b FROM book b WHERE b.id_publisher = ?")
+                    .bind(targetPublisher.id());
+
+    std::set<std::string> shopNames;
+
+    for (const auto& book : books.resultList()) {
+        // Получаем склады, где есть эта книга
+        auto stocks = session.query<Wt::Dbo::ptr<Stock>>(
+                        "SELECT s FROM book_stocks bs JOIN stock s ON bs.stock_id = s.id WHERE bs.book_id = ?")
+                        .bind(book.id())
+                        .resultList();
+
+        for (const auto& stock : stocks) {
+            // Получаем магазины, где есть этот склад
+            auto shops = session.query<Wt::Dbo::ptr<Shop>>(
+                        "SELECT s FROM shop s JOIN stock_shops ss ON ss.shop_id = s.id WHERE ss.stock_id = ?")
+                        .bind(stock.id())
+                        .resultList();
+
+            for (const auto& shop : shops)
+                shopNames.insert(shop->name);
+        }
+    }
+
+    std::cout << "Магазины, где продаются книги издателя '" << targetPublisher->name << "':" << std::endl;
+    for (const auto& name : shopNames)
+        std::cout << "- " << name << std::endl;
+
 }
