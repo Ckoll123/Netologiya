@@ -3,7 +3,7 @@
 
 class BDcontrol{
 public:
-    BDcontrol(pqxx::connection* c);
+    BDcontrol(std::string conectionSetup);
 
     void createTable(std::string tableName);
     void addClient(std::string name, std::string surname, std::string email);
@@ -14,6 +14,6 @@ public:
     void findClient(std::string name, std::string surname, std::string email, std::string phone);
 
 private:
-    pqxx::connection* c;
+    pqxx::connection c;
     std::string tableName;
 };

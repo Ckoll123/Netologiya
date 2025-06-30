@@ -6,15 +6,15 @@
 
 int main(){
     try{
-        pqxx::connection c(
+        std::string connectionSetup {
             "host=localhost "
             "port=5432 "
             "dbname=postgres "
             "user=admin "
             "password=12345"
-        );
+        };
 
-        BDcontrol bd(&c);
+        BDcontrol bd(connectionSetup);
         bd.createTable("clinetsDB");
         bd.addClient("Joe", "Bon", "Joe@email.com");
         bd.addClientPhone(1, "12345");

@@ -1,27 +1,23 @@
 #include "BDcontrol.h"
 
-BDcontrol::BDcontrol(pqxx::connection* c) :
+BDcontrol::BDcontrol(std::string conectionSetup) :
+    c{conectionSetup},
     tableName{}
-{ this->c = c; }
+{}
 
 void BDcontrol::createTable(std::string tableName){
-    try {
-        pqxx::work tx( *c );
-        std::string sqlRequest{"CREATE TABLE IF NOT EXISTS " + 
-                                tx.esc(tableName) +
-                                " (id SERIAL PRIMARY KEY, name TEXT NOT NULL, surname TEXT NOT NULL, email TEXT, phoneNumber TEXT)"};
-        tx.exec(sqlRequest);
-        this->tableName = tableName;
-        tx.commit();
-    }
-    catch (const std::exception &e) {
-        std::cerr << "Error creating table: " << e.what() << std::endl;
-    }
+    pqxx::work tx( c );
+    std::string sqlRequest{"CREATE TABLE IF NOT EXISTS " + 
+                            tx.esc(tableName) +
+                            " (id SERIAL PRIMARY KEY, name TEXT NOT NULL, surname TEXT NOT NULL, email TEXT, phoneNumber TEXT)"};
+    tx.exec(sqlRequest);
+    this->tableName = tableName;
+    tx.commit();
 }
 
 
 void BDcontrol::addClient(std::string name, std::string surname, std::string email){
-    pqxx::work tx( *c );
+    pqxx::work tx( c );
     std::string sqlRequest{"INSERT INTO " + tableName + " (name, surname, email) VALUES('" + 
                             tx.esc(name) + "', '" + 
                             tx.esc(surname) + "', '" +
@@ -32,7 +28,7 @@ void BDcontrol::addClient(std::string name, std::string surname, std::string ema
 
 
 void BDcontrol::addClientPhone(size_t id, std::string phone){
-    pqxx::work tx( *c );
+    pqxx::work tx( c );
     std::string sqlRequest{"UPDATE " + tableName + " SET phoneNumber='" + tx.esc(phone) + "' WHERE id=" + tx.quote(id)};
     tx.exec(sqlRequest);
     tx.commit();
@@ -40,7 +36,7 @@ void BDcontrol::addClientPhone(size_t id, std::string phone){
 
 
 void BDcontrol::changeClientData(size_t id, std::string name, std::string surname, std::string email, std::string phone){
-    pqxx::work tx( *c );
+    pqxx::work tx( c );
     std::string sqlRequest{"UPDATE " + tableName +
                             " SET name = '" + tx.esc(name) + 
                             "', surname = '" + tx.esc(surname) + 
@@ -54,7 +50,7 @@ void BDcontrol::changeClientData(size_t id, std::string name, std::string surnam
 
 
 void BDcontrol::removeClientPhone(size_t id){
-    pqxx::work tx( *c );
+    pqxx::work tx( c );
     std::string sqlRequest{"UPDATE " + tableName + " SET phoneNumber=NULL WHERE id=" + tx.quote(id)};
     tx.exec(sqlRequest);
     tx.commit();
@@ -62,7 +58,7 @@ void BDcontrol::removeClientPhone(size_t id){
 
 
 void BDcontrol::removeClient(size_t id){
-    pqxx::work tx( *c );
+    pqxx::work tx( c );
     std::string sqlRequest{"DELETE FROM " + tableName + " WHERE id=" + tx.quote(id)};
     tx.exec(sqlRequest);
     tx.commit();
@@ -70,7 +66,7 @@ void BDcontrol::removeClient(size_t id){
 
 
 void BDcontrol::findClient(std::string name, std::string surname, std::string email, std::string phone){
-    pqxx::work tx( *c );
+    pqxx::work tx( c );
     std::string sqlRequest{"SELECT id, name FROM " + tableName +
                             " WHERE name ILIKE " + tx.quote(name) + 
                             " OR surname ILIKE " + tx.quote(surname) + 
