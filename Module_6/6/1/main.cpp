@@ -32,10 +32,10 @@ int main(){
         session.mapClass<Stock>("stock");
         session.mapClass<Sale>("sale");
 
-        // session.createTables();
+        session.createTables();
 
         fillTables(session);
-        // getPublisherInfo(session);
+        getPublisherInfo(session);
     }
     catch (const Wt::Dbo::Exception& e)
     {
@@ -64,22 +64,22 @@ void fillTables(Wt::Dbo::Session& session){
 
     std::unique_ptr<Book> book1{ new Book() };
     book1->title = "book1";
-    book1->id_publisher = pPublisher1;
+    book1->publisher = pPublisher1;
     Wt::Dbo::ptr<Book> pBook1 = session.add(std::move(book1));
 
     std::unique_ptr<Book> book2{ new Book() };
     book2->title = "book2";
-    book2->id_publisher = pPublisher1;
+    book2->publisher = pPublisher1;
     Wt::Dbo::ptr<Book> pBook2 = session.add(std::move(book2));
 
     std::unique_ptr<Book> book3{ new Book() };
     book3->title = "book1";
-    book3->id_publisher = pPublisher2;
+    book3->publisher = pPublisher2;
     Wt::Dbo::ptr<Book> pBook3 = session.add(std::move(book3));
 
     std::unique_ptr<Book> book4{ new Book() };
     book4->title = "book2";
-    book4->id_publisher = pPublisher2;
+    book4->publisher = pPublisher2;
     Wt::Dbo::ptr<Book> pBook4 = session.add(std::move(book4));
 
 
@@ -93,19 +93,13 @@ void fillTables(Wt::Dbo::Session& session){
 
 
     std::unique_ptr<Stock> stock1{ new Stock() };
-    stock1->shops.insert(pShop1);
-    stock1->shops.insert(pShop2);
-    stock1->books.insert(pBook1);
-    stock1->books.insert(pBook2);
-    stock1->books.insert(pBook4);
+    stock1->shops = pShop1;
+    stock1->books = pBook3;
     Wt::Dbo::ptr<Stock> pStock1 = session.add(std::move(stock1));
 
     std::unique_ptr<Stock> stock2{ new Stock() };
-    stock2->shops.insert(pShop1);
-    stock2->shops.insert(pShop2);
-    stock2->books.insert(pBook1);
-    stock2->books.insert(pBook3);
-    stock2->books.insert(pBook4);
+    stock2->shops = pShop2;
+    stock2->books = pBook4;
     Wt::Dbo::ptr<Stock> pStock2 = session.add(std::move(stock2));
 
     std::unique_ptr<Sale> sale1{ new Sale() };
@@ -137,6 +131,7 @@ void getPublisherInfo(Wt::Dbo::Session& session){
         publisherId = std::stoi(input);
     } catch (...) {}
 
+    Wt::Dbo::Transaction transaction{ session };
     Wt::Dbo::ptr<Publisher> targetPublisher;
 
     if (publisherId != -1) {
@@ -151,7 +146,7 @@ void getPublisherInfo(Wt::Dbo::Session& session){
         return;
     }
 
-    auto books = session.query<Wt::Dbo::ptr<Book>>("SELECT b FROM book b WHERE b.id_publisher = ?")
+    auto books = session.query<Wt::Dbo::ptr<Book>>("SELECT b FROM book b WHERE b.publisher_id = ?")
                     .bind(targetPublisher.id());
 
     std::set<std::string> shopNames;
@@ -159,15 +154,15 @@ void getPublisherInfo(Wt::Dbo::Session& session){
     for (const auto& book : books.resultList()) {
         // Получаем склады, где есть эта книга
         auto stocks = session.query<Wt::Dbo::ptr<Stock>>(
-                        "SELECT s FROM book_stocks bs JOIN stock s ON bs.stock_id = s.id WHERE bs.book_id = ?")
+                        "SELECT s FROM stock s WHERE s.books_id = ?")
                         .bind(book.id())
                         .resultList();
 
         for (const auto& stock : stocks) {
             // Получаем магазины, где есть этот склад
             auto shops = session.query<Wt::Dbo::ptr<Shop>>(
-                        "SELECT s FROM shop s JOIN stock_shops ss ON ss.shop_id = s.id WHERE ss.stock_id = ?")
-                        .bind(stock.id())
+                        "SELECT s FROM shop s JOIN stock ss ON ss.shops_id = s.id WHERE ss.books_id = ?")
+                        .bind(book.id())
                         .resultList();
 
             for (const auto& shop : shops)
@@ -178,5 +173,6 @@ void getPublisherInfo(Wt::Dbo::Session& session){
     std::cout << "Магазины, где продаются книги издателя '" << targetPublisher->name << "':" << std::endl;
     for (const auto& name : shopNames)
         std::cout << "- " << name << std::endl;
-
+   
+    transaction.commit();
 }
