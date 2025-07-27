@@ -61,36 +61,36 @@ void Safe_queue<T>::push(T value){
     cond_var.notify_all();
 };
 
-template <typename T>
-void Safe_queue<T>::pop(){
-    lock_guard<mutex> lock_g(mtx);
-    q.pop();
-}
-
-template <typename T>
-T Safe_queue<T>::front(){
-    unique_lock<mutex> un_l(mtx);
-    cond_var.wait(un_l, [this]() { return !q.empty(); });
-    cout << "Start thread id: " << this_thread::get_id() << endl;
-    T value = move(q.front());
-    return value;
-}
-
 // template <typename T>
 // void Safe_queue<T>::pop(){
-//     unique_lock<mutex> un_l(mtx);
-//     cond_var.wait(un_l, [this]() { return !q.empty(); });
-//     packaged_task<void()> task = front();
+//     lock_guard<mutex> lock_g(mtx);
 //     q.pop();
-//     task();
 // }
 
 // template <typename T>
 // T Safe_queue<T>::front(){
+//     unique_lock<mutex> un_l(mtx);
+//     cond_var.wait(un_l, [this]() { return !q.empty(); });
 //     cout << "Start thread id: " << this_thread::get_id() << endl;
 //     T value = move(q.front());
 //     return value;
 // }
+
+template <typename T>
+void Safe_queue<T>::pop(){
+    unique_lock<mutex> un_l(mtx);
+    cond_var.wait(un_l, [this]() { return !q.empty(); });
+    packaged_task<void()> task = front();
+    q.pop();
+    task();
+}
+
+template <typename T>
+T Safe_queue<T>::front(){
+    cout << "Start thread id: " << this_thread::get_id() << endl;
+    T value = move(q.front());
+    return value;
+}
 
 
 
@@ -119,9 +119,9 @@ private:
 
 void Thread_pool::work(){
     while(true){
-        packaged_task<void()> task = safe_queue.front();
+        // packaged_task<void()> task = safe_queue.front();
         safe_queue.pop();
-        task();
+        // task();
     }
 }
 
