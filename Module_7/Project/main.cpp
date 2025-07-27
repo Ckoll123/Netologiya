@@ -45,12 +45,14 @@ class Safe_queue {
 public:
     void push(T value);
     void pop();
-    T front();
     bool empty(){ return q.empty(); };
-
+    
     condition_variable cond_var;
     mutex mtx;
+
 private:
+    T front();
+
     queue<T> q;
 };
 
