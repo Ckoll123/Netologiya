@@ -10,32 +10,22 @@ using namespace std;
 mutex cout_mtx;
 
 void func1(){
-    lock_guard<mutex> lk_g(cout_mtx);
-    cout << "Working in thread id: " << this_thread::get_id() << ". ";
     cout << __FUNCTION__ << endl;
 }
 
 void func2(){
-    lock_guard<mutex> lk_g(cout_mtx);
-    cout << "Working in thread id: " << this_thread::get_id() << ". ";
     cout << __FUNCTION__ << endl;
 }
 
 void func3(){
-    lock_guard<mutex> lk_g(cout_mtx);
-    cout << "Working in thread id: " << this_thread::get_id() << ". ";
     cout << __FUNCTION__ << endl;
 }
 
 void func4(){
-    lock_guard<mutex> lk_g(cout_mtx);
-    cout << "Working in thread id: " << this_thread::get_id() << ". ";
     cout << __FUNCTION__ << endl;
 }
 
 void func5(){
-    lock_guard<mutex> lk_g(cout_mtx);
-    cout << "Working in thread id: " << this_thread::get_id() << ". ";
     cout << __FUNCTION__ << endl;
 }
 
@@ -44,16 +34,14 @@ template <typename T>
 class Safe_queue {
 public:
     void push(T value);
-    void pop();
+    T pop();
     bool empty(){ return q.empty(); };
     
-    condition_variable cond_var;
+    
     mutex mtx;
-
 private:
-    T front();
-
     queue<T> q;
+    condition_variable cond_var;
 };
 
 template <typename T>
@@ -63,37 +51,16 @@ void Safe_queue<T>::push(T value){
     cond_var.notify_all();
 };
 
-// template <typename T>
-// void Safe_queue<T>::pop(){
-//     lock_guard<mutex> lock_g(mtx);
-//     q.pop();
-// }
-
-// template <typename T>
-// T Safe_queue<T>::front(){
-//     unique_lock<mutex> un_l(mtx);
-//     cond_var.wait(un_l, [this]() { return !q.empty(); });
-//     cout << "Start thread id: " << this_thread::get_id() << endl;
-//     T value = move(q.front());
-//     return value;
-// }
-
 template <typename T>
-void Safe_queue<T>::pop(){
+T Safe_queue<T>::pop(){
     unique_lock<mutex> un_l(mtx);
     cond_var.wait(un_l, [this]() { return !q.empty(); });
-    packaged_task<void()> task = front();
+    T task = move(q.front());
     q.pop();
-    task();
-}
+    un_l.unlock();
 
-template <typename T>
-T Safe_queue<T>::front(){
-    cout << "Start thread id: " << this_thread::get_id() << endl;
-    T value = move(q.front());
-    return value;
+    return task;
 }
-
 
 
 class Thread_pool {
@@ -121,17 +88,20 @@ private:
 
 void Thread_pool::work(){
     while(true){
-        // packaged_task<void()> task = safe_queue.front();
-        safe_queue.pop();
-        // task();
+        auto task = safe_queue.pop();
+
+        {
+            lock_guard<mutex> lock(cout_mtx);
+            cout << "Start thread id: " << this_thread::get_id() << endl;
+            cout << "Working in thread id: " << this_thread::get_id() << ". " << endl;
+        }
+
+        task();
     }
 }
 
 void Thread_pool::submit(packaged_task<void()> task){
-    unique_lock<mutex> un_l(safe_queue.mtx);
     cout << "Put task in queue" << endl;
-    un_l.unlock();
-
     safe_queue.push(move(task));
 }
 
