@@ -10,11 +10,13 @@
                 "${file}",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "${fileDirname}\\BDcontrol.cpp",
+                "${fileDirname}\\DBcontrol.cpp",
                 "${fileDirname}\\IniParser.cpp",
+                "${fileDirname}\\Indexer.cpp",
                 "-L", "C:/msys64/ucrt64/lib",
                 "-lpqxx",
-                "-lpq"
+                "-lpq",
+                "-lboost_locale-mt"
             ],
             "options": {
                 "cwd": "C:\\msys64\\ucrt64\\bin"
