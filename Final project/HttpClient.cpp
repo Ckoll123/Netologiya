@@ -2,9 +2,8 @@
 
 
 HttpClient::HttpClient() :
-    _host(),
+    _link(),
     _port(),
-    _target(),
     _httpVersion(10),
     _ioc(),
     _resolver(_ioc),
@@ -13,10 +12,10 @@ HttpClient::HttpClient() :
 {}
 
 
-void HttpClient::setConnectionParams(std::string host, std::string port, std::string target, int httpVersion){
-    _host = host;
+// void HttpClient::setConnectionParams(std::string host, std::string port, std::string target, int httpVersion){
+void HttpClient::setConnectionParams(const Link& link, std::string port, int httpVersion){
+    _link = link;
     _port = port;
-    _target = target;
     _httpVersion = httpVersion;
 }
 
@@ -24,14 +23,14 @@ void HttpClient::setConnectionParams(std::string host, std::string port, std::st
 void HttpClient::sendGetRequest(){
     try{
         // Look up the domain name
-        auto const results = _resolver.resolve(_host, _port);
+        auto const results = _resolver.resolve(_link.host, _port);
 
         // Make the connection on the IP address we get from a lookup
         _stream.connect(results);
 
         // Set up an HTTP GET request message
-        http::request<http::string_body> req{http::verb::get, _target, _httpVersion};
-        req.set(http::field::host, _host);
+        http::request<http::string_body> req{http::verb::get, _link.target, _httpVersion};
+        req.set(http::field::host, _link.host);
         req.set(http::field::user_agent, BOOST_BEAST_VERSION_STRING);
 
         // Send the HTTP request to the remote host
@@ -69,7 +68,8 @@ void HttpClient::sendGetRequest(){
 }
 
 
-std::vector<std::string> HttpClient::returnDataForIndexer() const{
-    std::vector<std::string> result{_host, _target, _html_body};
-    return result;
+// std::vector<std::string> HttpClient::returnDataForIndexer() const{
+std::pair<Link, std::string> HttpClient::returnDataForIndexer() const{
+    // std::vector<std::string> result{_host, _target, _html_body};
+    return { _link, _html_body };
 }

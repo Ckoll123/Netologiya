@@ -1,44 +1,50 @@
 #include "Indexer.h"
 
-Indexer::Indexer() :
+Indexer::Indexer(size_t recursionLimit) :
     _host(),
     _target(),
-    inFile(),
-    html_page(),
+    _inFile(),
+    _html_page(),
+    _recursionLimit(recursionLimit),
+    _currentRecursionDepth(),
     links(),
-    wordsCountMap()
+    _wordsCountMap()
 {}
 
 
-// void Indexer::indexPage(const std::string& inFileName){
-void Indexer::indexPage(std::vector<std::string> citeData){
-    // citeName = inFileName;
-    // inFile.open(citeName);
-    // if(!inFile.is_open()){
-    //     throw std::runtime_error("Не удалось открыть файл " + citeName);
-    // }
-    // std::stringstream buffer;
-    // buffer << inFile.rdbuf();
-    // html_page = buffer.str();
-
-    _host = citeData.at(0);
-    _target = citeData.at(1);
-    html_page = citeData.at(2);
-
-    extractLinks();
+// void Indexer::indexPage(const std::string& _inFileName){
+// void Indexer::indexPage(std::vector<std::string> citeData){
+    // citeName = _inFileName;
+    // _inFile.open(citeName);
+    // if(!_inFile.is_open()){
+        //     throw std::runtime_error("Не удалось открыть файл " + citeName);
+        // }
+        // std::stringstream buffer;
+        // buffer << _inFile.rdbuf();
+        // _html_page = buffer.str();
+        
+void Indexer::indexPage(std::pair<Link, std::string> citeData){
+    _host = citeData.first.host;
+    _target = citeData.first.target;
+    _currentRecursionDepth = citeData.first.currentRecursionDepth;
+    _html_page = citeData.second;
+    
+    if(_currentRecursionDepth && _currentRecursionDepth < _recursionLimit){
+        extractLinks();
+    }
     cleanHtmlPage();
 
-    std::istringstream iss(html_page);
+    std::istringstream iss(_html_page);
     std::string word;
 
     while (iss >> word){
-        wordsCountMap[word]++;
+        _wordsCountMap[word]++;
     }
     
     // std::ofstream out("output.txt");
-    // int count = wordsCountMap["wiki"];
+    // int count = _wordsCountMap["wiki"];
     // if (out.is_open()) {
-    //     out << html_page;
+    //     out << _html_page;
     //     out.close();
     // } else {
     //     std::cerr << "Не удалось выходной открыть файл!\n";
@@ -47,13 +53,15 @@ void Indexer::indexPage(std::vector<std::string> citeData){
 
 
 bool Indexer::isAllPagesIndexed() const{
-    return links.empty();
+    return _links.empty();
 }
 
 
-std::pair<std::string, std::string> Indexer::getLink(){     // добавить проверку на пустой вектор?
-    std::pair result = splitURL(links.back());
-    links.pop_back();
+Link Indexer::getLink(){     // добавить проверку на пустой вектор?
+    // std::pair result = splitURL(links.back());
+    // links.pop_back();
+    Link result = std::move(_links.back());
+    _links.pop_back();
     return result;
 }
 
@@ -62,12 +70,13 @@ void Indexer::extractLinks(){
     std::regex href_regex("<a\\s+[^>]*href=[\"']([^\"']+)[\"']", std::regex::icase);
     std::smatch match;
 
-    std::string::const_iterator searchStart(html_page.cbegin());
-    while (std::regex_search(searchStart, html_page.cend(), match, href_regex)) {
+    std::string::const_iterator searchStart(_html_page.cbegin());
+    while (std::regex_search(searchStart, _html_page.cend(), match, href_regex)) {
         std::string url = match[1];
         // if (url[0] != '#'){
         if (url.find("http://") == 0 || url.find("/") == 0){
-            links.push_back(match[1]);
+            // links.push_back(url);
+            _links.emplace_back(splitURL(url), ++_currentRecursionDepth);
         }
         searchStart = match.suffix().first;
     }
@@ -102,7 +111,7 @@ std::pair<std::string, std::string> Indexer::splitURL(std::string url){
 
 void Indexer::cleanHtmlPage(){
     std::regex tag_re("<[^>]*>");
-    std::string noTagsHtml = std::regex_replace(html_page, tag_re, " ");
+    std::string noTagsHtml = std::regex_replace(_html_page, tag_re, " ");
 
     std::string result;
     for (unsigned char ch : noTagsHtml) {
@@ -115,12 +124,12 @@ void Indexer::cleanHtmlPage(){
     }
 
     std::regex spaces("\\s+");
-    html_page = std::regex_replace(result, spaces, " ");
+    _html_page = std::regex_replace(result, spaces, " ");
 }
 
 
 void Indexer::sendDataToDB(DBcontrol& db){
-    db.updateDB(_host + _target, wordsCountMap);
+    db.updateDB(_host + _target, _wordsCountMap);
 }
 
 

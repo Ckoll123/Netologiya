@@ -9,12 +9,15 @@
 #include "SafeQueue.h"
 #include "Indexer.h"
 #include "HttpClient.h"
+#include "Link.h"
+
 
 
 class ThreadPool {
 public:
-    ThreadPool(unsigned int max_threads, DBcontrol* db) :
-        _db(db)
+    ThreadPool(unsigned int max_threads, DBcontrol* db, size_t recursionDepth) :
+        _db(db),
+        _recusionLimit(recursionDepth)
     {
         for(size_t i = 0; i < std::max(1u, max_threads); i++){
             _threads.emplace_back(&ThreadPool::work, this);
@@ -28,13 +31,14 @@ public:
     }
 
     void work();
-    void submit(std::pair<std::string, std::string> link);
+    void submit(Link link);
 
 private:
     std::vector<std::thread> _threads;
-    SafeQueue<std::pair<std::string, std::string>> _safe_queue;
+    SafeQueue<Link> _safe_queue;
     std::mutex _cout_mtx;    ////////////////////////////////
     DBcontrol* _db;
+    size_t _recusionLimit;
 };
 
 
@@ -42,7 +46,7 @@ private:
 
 void ThreadPool::work(){
     HttpClient client;
-    Indexer indexer;
+    Indexer indexer(_recusionLimit);
 
     while(true){
         auto url = _safe_queue.pop();
@@ -53,9 +57,9 @@ void ThreadPool::work(){
             std::cout << "Working in thread id: " << std::this_thread::get_id() << ". " << std::endl;
         }   ////////////////////////////////////////////////////////////////////////////
 
-        client.setConnectionParams(url.first, "80", url.second);
+        client.setConnectionParams(url, "80");
         client.sendGetRequest();
-        indexer.indexPage(client.returnDataForIndexer());
+        indexer.indexPage(std::move(client.returnDataForIndexer()));
         indexer.sendDataToDB(*_db);
 
         while(!indexer.isAllPagesIndexed()){
@@ -64,7 +68,7 @@ void ThreadPool::work(){
     }
 }
 
-void ThreadPool::submit(std::pair<std::string, std::string> link){
+void ThreadPool::submit(Link link){
     std::cout << "Put link in queue" << std::endl;
-    _safe_queue.push(move(link));
+    _safe_queue.push(std::move(link));
 }

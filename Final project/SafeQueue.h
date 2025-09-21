@@ -2,7 +2,6 @@
 #include <vector>
 #include <queue>
 #include <thread>
-// #include <future>
 #include <condition_variable>
 
 
@@ -25,7 +24,7 @@ private:
 template <typename T>
 void SafeQueue<T>::push(T value){
     std::lock_guard<std::mutex> lock_g(mtx);
-    q.push(move(value));
+    q.push(std::move(value));
     condVar.notify_all();
 };
 
@@ -33,7 +32,7 @@ template <typename T>
 T SafeQueue<T>::pop(){
     std::unique_lock<std::mutex> uniqueLock(mtx);
     condVar.wait(uniqueLock, [this]() { return !q.empty(); });
-    T task = move(q.front());
+    T task = std::move(q.front());
     q.pop();
     uniqueLock.unlock();
 

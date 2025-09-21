@@ -8,15 +8,17 @@
 #include <utility>
 
 #include "DBcontrol.h"
+#include "Link.h"
 
 class Indexer{
 public:
-    Indexer();
-    // void indexPage(const std::string& inFileName);
-    void indexPage(std::vector<std::string> citeData);
+    Indexer(size_t recursionLimit);
+    // void indexPage(const std::string& _inFileName);
+    // void indexPage(std::vector<std::string> citeData);
+    void indexPage(std::pair<Link, std::string> citeData);
     void sendDataToDB(DBcontrol& DB);
     bool isAllPagesIndexed() const;
-    std::pair<std::string, std::string> getLink();
+    Link getLink();
 
 private:
     void extractLinks();
@@ -28,8 +30,11 @@ private:
 private:
     std::string _host;
     std::string _target;
-    std::ifstream inFile;
-    std::string html_page;
+    std::ifstream _inFile;
+    std::string _html_page;
+    size_t _recursionLimit;
+    size_t _currentRecursionDepth;
     std::vector<std::string> links;
-    std::map<std::string, int> wordsCountMap;
+    std::vector<Link> _links;
+    std::map<std::string, int> _wordsCountMap;
 };

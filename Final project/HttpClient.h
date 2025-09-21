@@ -8,7 +8,9 @@
 #include <cstdlib>
 #include <iostream>
 #include <string>
-#include <vector>
+// #include <vector>
+
+#include "Link.h"
 
 namespace beast = boost::beast;     // from <boost/beast.hpp>
 namespace http = beast::http;       // from <boost/beast/http.hpp>
@@ -20,14 +22,15 @@ using tcp = net::ip::tcp;           // from <boost/asio/ip/tcp.hpp>
 class HttpClient{
 public:
     HttpClient();
-    void setConnectionParams(std::string host, std::string port, std::string target, int httpVersion = 10);
+    // void setConnectionParams(std::string host, std::string port, std::string target, int httpVersion = 10);
+    void setConnectionParams(const Link& link, std::string port, int httpVersion = 10);
     void sendGetRequest();
-    std::vector<std::string> returnDataForIndexer() const;
+    // std::vector<std::string> returnDataForIndexer() const;
+    std::pair<Link, std::string> returnDataForIndexer() const;
 
 private:
-    std::string _host;
+    Link _link;
     std::string _port;
-    std::string _target;
     int _httpVersion; 
     net::io_context _ioc;
     tcp::resolver _resolver;
