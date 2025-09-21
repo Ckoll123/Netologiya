@@ -8,7 +8,6 @@
 #include <cstdlib>
 #include <iostream>
 #include <string>
-// #include <vector>
 
 #include "Link.h"
 
@@ -22,10 +21,8 @@ using tcp = net::ip::tcp;           // from <boost/asio/ip/tcp.hpp>
 class HttpClient{
 public:
     HttpClient();
-    // void setConnectionParams(std::string host, std::string port, std::string target, int httpVersion = 10);
     void setConnectionParams(const Link& link, std::string port, int httpVersion = 10);
     void sendGetRequest();
-    // std::vector<std::string> returnDataForIndexer() const;
     std::pair<Link, std::string> returnDataForIndexer() const;
 
 private:

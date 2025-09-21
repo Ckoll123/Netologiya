@@ -12,7 +12,6 @@ HttpClient::HttpClient() :
 {}
 
 
-// void HttpClient::setConnectionParams(std::string host, std::string port, std::string target, int httpVersion){
 void HttpClient::setConnectionParams(const Link& link, std::string port, int httpVersion){
     _link = link;
     _port = port;
@@ -63,13 +62,10 @@ void HttpClient::sendGetRequest(){
     }
     catch(std::exception const& e){
         std::cerr << "Error: " << e.what() << std::endl;
-        // return EXIT_FAILURE;
     }
 }
 
 
-// std::vector<std::string> HttpClient::returnDataForIndexer() const{
 std::pair<Link, std::string> HttpClient::returnDataForIndexer() const{
-    // std::vector<std::string> result{_host, _target, _html_body};
     return { _link, _html_body };
 }

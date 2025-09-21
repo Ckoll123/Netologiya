@@ -34,7 +34,6 @@ private:
     std::string _html_page;
     size_t _recursionLimit;
     size_t _currentRecursionDepth;
-    std::vector<std::string> links;
     std::vector<Link> _links;
     std::map<std::string, int> _wordsCountMap;
 };

@@ -7,7 +7,7 @@ Indexer::Indexer(size_t recursionLimit) :
     _html_page(),
     _recursionLimit(recursionLimit),
     _currentRecursionDepth(),
-    links(),
+    _links(),
     _wordsCountMap()
 {}
 
@@ -58,8 +58,6 @@ bool Indexer::isAllPagesIndexed() const{
 
 
 Link Indexer::getLink(){     // добавить проверку на пустой вектор?
-    // std::pair result = splitURL(links.back());
-    // links.pop_back();
     Link result = std::move(_links.back());
     _links.pop_back();
     return result;
@@ -75,7 +73,6 @@ void Indexer::extractLinks(){
         std::string url = match[1];
         // if (url[0] != '#'){
         if (url.find("http://") == 0 || url.find("/") == 0){
-            // links.push_back(url);
             _links.emplace_back(splitURL(url), ++_currentRecursionDepth);
         }
         searchStart = match.suffix().first;
