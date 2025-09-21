@@ -8,7 +8,8 @@ Indexer::Indexer(size_t recursionLimit) :
     _recursionLimit(recursionLimit),
     _currentRecursionDepth(),
     _links(),
-    _wordsCountMap()
+    _wordsCountMap(),
+    _safeSet()
 {}
 
 
@@ -73,7 +74,10 @@ void Indexer::extractLinks(){
         std::string url = match[1];
         // if (url[0] != '#'){
         if (url.find("http://") == 0 || url.find("/") == 0){
-            _links.emplace_back(splitURL(url), ++_currentRecursionDepth);
+            if(!_safeSet.find(url)){
+                _safeSet.insert(url);
+                _links.emplace_back(splitURL(url), ++_currentRecursionDepth);
+            }
         }
         searchStart = match.suffix().first;
     }

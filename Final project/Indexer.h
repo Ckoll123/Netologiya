@@ -9,6 +9,7 @@
 
 #include "DBcontrol.h"
 #include "Link.h"
+#include "SafeSet.h"
 
 class Indexer{
 public:
@@ -36,4 +37,5 @@ private:
     size_t _currentRecursionDepth;
     std::vector<Link> _links;
     std::map<std::string, int> _wordsCountMap;
+    SafeSet<std::string> _safeSet;
 };

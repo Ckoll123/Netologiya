@@ -47,6 +47,8 @@ void HttpClient::sendGetRequest(){
 
         // Write the message to standard out
         std::cout << res.base() << std::endl;
+        std::cout << "Link address: " + _link.host + _link.target + "\n"
+                  + "Link depth: " + std::to_string(_link.currentRecursionDepth) << std::endl;
 
         // Gracefully close the socket
         beast::error_code ec;
