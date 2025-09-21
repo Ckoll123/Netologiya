@@ -13,10 +13,12 @@
                 "${fileDirname}\\DBcontrol.cpp",
                 "${fileDirname}\\IniParser.cpp",
                 "${fileDirname}\\Indexer.cpp",
+                "${fileDirname}\\HttpClient.cpp",
                 "-L", "C:/msys64/ucrt64/lib",
                 "-lpqxx",
                 "-lpq",
-                "-lboost_locale-mt"
+                "-lboost_locale-mt",
+                "-lws2_32"
             ],
             "options": {
                 "cwd": "C:\\msys64\\ucrt64\\bin"
