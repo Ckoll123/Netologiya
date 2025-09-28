@@ -11,7 +11,7 @@
 #include "ThreadPool.h"
 
 
-int main(){
+int main1(){
 
     try{
         IniParser parser("configurator.ini");

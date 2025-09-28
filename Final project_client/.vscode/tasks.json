@@ -14,11 +14,13 @@
                 "${fileDirname}\\IniParser.cpp",
                 "${fileDirname}\\Indexer.cpp",
                 "${fileDirname}\\HttpClient.cpp",
+                // "${fileDirname}\\HttpServer.cpp",
                 "-L", "C:/msys64/ucrt64/lib",
                 "-lpqxx",
                 "-lpq",
                 "-lboost_locale-mt",
-                "-lws2_32"
+                "-lws2_32",
+                "-lmswsock"
             ],
             "options": {
                 "cwd": "C:\\msys64\\ucrt64\\bin"
