@@ -43,12 +43,19 @@ void HttpClient::sendGetRequest(){
 
         // Receive the HTTP response
         http::read(_stream, buffer, res);
-        _html_body = beast::buffers_to_string(res.body().data());
+
+        auto contentType = res[http::field::content_type];
+        if (contentType.find("text/html") != std::string::npos) {
+            _html_body = beast::buffers_to_string(res.body().data());
+        }
+        else{
+            _html_body = "Not html";
+        }
 
         // Write the message to standard out
         std::cout << res.base() << std::endl;
         std::cout << "Link address: " + _link.host + _link.target + "\n"
-                  + "Link depth: " + std::to_string(_link.currentRecursionDepth) << std::endl;
+                  + "Link depth: " + std::to_string(_link.currentRecursionDepth) + "\n" << std::endl;
 
         // Gracefully close the socket
         beast::error_code ec;

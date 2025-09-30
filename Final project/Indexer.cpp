@@ -29,6 +29,8 @@ void Indexer::indexPage(std::pair<Link, std::string> citeData){
     _target = citeData.first.target;
     _currentRecursionDepth = citeData.first.currentRecursionDepth;
     _html_page = citeData.second;
+
+    if (_html_page == "Not html") { return; }
     
     if(_currentRecursionDepth && _currentRecursionDepth < _recursionLimit){
         extractLinks();
