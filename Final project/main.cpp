@@ -29,7 +29,7 @@ int main(){
         auto dbUser = parser.get_value<std::string>("DB.user");
         auto dbPassword = parser.get_value<std::string>("DB.password");
 
-        std::string connectionSetup {
+        std::string dbConnectionSetup {
             "host=" + dbHost + " "
             "port=" + dbPort + " "
             "dbname=" + dbName + " "
@@ -38,11 +38,11 @@ int main(){
             "sslmode=disable"
         };
 
-        Link startLink( {startPage, "/wiki/Main_Page"}, 1 );
+        Link startLink( {startPage, "/"}, 1 );
 
-        DBcontrol db(connectionSetup);
+        DBcontrol db(dbConnectionSetup);
         db.createTables();
-        ThreadPool threadPool(std::thread::hardware_concurrency() - 1, &db, recursionDepth);
+        ThreadPool threadPool(std::thread::hardware_concurrency() - 1, dbConnectionSetup, recursionDepth);
         threadPool.submit(startLink);
 
         HttpServer server(std::string("0.0.0.0"), std::string("8080"), DOC_ROOT, db);

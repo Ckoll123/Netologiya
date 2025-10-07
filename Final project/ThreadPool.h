@@ -10,13 +10,13 @@
 #include "Indexer.h"
 #include "HttpClient.h"
 #include "Link.h"
-
+#include "DBcontrol.h"
 
 
 class ThreadPool {
 public:
-    ThreadPool(unsigned int max_threads, DBcontrol* db, size_t recursionDepth) :
-        _db(db),
+    ThreadPool(unsigned int max_threads, const std::string& dbConnection, size_t recursionDepth) :
+        _dbConnection(dbConnection),
         _recusionLimit(recursionDepth)
     {
         for(size_t i = 0; i < std::max(1u, max_threads); i++){
@@ -37,7 +37,7 @@ private:
     std::vector<std::thread> _threads;
     SafeQueue<Link> _safe_queue;
     std::mutex _cout_mtx;    ////////////////////////////////
-    DBcontrol* _db;
+    const std::string _dbConnection;
     size_t _recusionLimit;
 };
 
@@ -46,6 +46,7 @@ private:
 
 void ThreadPool::work(){
     Indexer indexer(_recusionLimit);
+    DBcontrol db(_dbConnection);
 
     while(true){
         auto url = _safe_queue.pop();
@@ -61,7 +62,7 @@ void ThreadPool::work(){
         client.setConnectionParams(url, "443");
         client.sendGetRequest();
         indexer.indexPage(std::move(client.returnDataForIndexer()));
-        indexer.sendDataToDB(*_db);
+        indexer.sendDataToDB(db);
 
         while(!indexer.isAllPagesIndexed()){
             submit(indexer.getLink());

@@ -100,7 +100,8 @@
         "typeinfo": "cpp",
         "valarray": "cpp",
         "variant": "cpp",
-        "locale": "cpp"
+        "locale": "cpp",
+        "ciso646": "cpp"
     },
     "C_Cpp.default.compilerPath": "C:/msys64/ucrt64/bin/g++.exe"
 }

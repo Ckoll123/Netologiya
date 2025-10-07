@@ -11,7 +11,10 @@ class SafeQueue {
 public:
     void push(T value);
     T pop();
-    bool empty(){ return q.empty(); };
+    bool empty(){
+        std::lock_guard<std::mutex> lock(mtx);
+        return q.empty();
+    };
     
 public:
     std::mutex mtx;
@@ -23,9 +26,11 @@ private:
 
 template <typename T>
 void SafeQueue<T>::push(T value){
-    std::lock_guard<std::mutex> lock_g(mtx);
-    q.push(std::move(value));
-    condVar.notify_all();
+    {
+        std::lock_guard<std::mutex> lock_g(mtx);
+        q.push(std::move(value));
+    }
+        condVar.notify_all();
 };
 
 template <typename T>
