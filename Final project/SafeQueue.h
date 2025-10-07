@@ -30,6 +30,7 @@ void SafeQueue<T>::push(T value){
 
 template <typename T>
 T SafeQueue<T>::pop(){
+    std::cout << "Waiting for new link in queue... (thread " << std::this_thread::get_id() << ")\n";
     std::unique_lock<std::mutex> uniqueLock(mtx);
     condVar.wait(uniqueLock, [this]() { return !q.empty(); });
     T task = std::move(q.front());

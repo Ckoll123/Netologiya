@@ -45,7 +45,6 @@ private:
 
 
 void ThreadPool::work(){
-    HttpClient client;
     Indexer indexer(_recusionLimit);
 
     while(true){
@@ -57,7 +56,9 @@ void ThreadPool::work(){
             std::cout << "Working in thread id: " << std::this_thread::get_id() << ". " << std::endl;
         }   ////////////////////////////////////////////////////////////////////////////
 
-        client.setConnectionParams(url, "80");
+        
+        HttpsClient client;
+        client.setConnectionParams(url, "443");
         client.sendGetRequest();
         indexer.indexPage(std::move(client.returnDataForIndexer()));
         indexer.sendDataToDB(*_db);

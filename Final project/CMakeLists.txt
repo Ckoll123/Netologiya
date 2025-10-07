@@ -7,6 +7,7 @@ add_executable(${PROJECT_NAME}
                 IniParser.cpp
                 Indexer.cpp
                 HttpClient.cpp
+                HttpsClient.cpp
                 HttpServer.cpp
                 HttpServerFcns.cpp
 )
@@ -22,6 +23,7 @@ configure_file(${CMAKE_SOURCE_DIR}/configurator.ini
 # link_directories(C:/msys64/ucrt64/lib)
 
 find_package(Boost REQUIRED COMPONENTS locale)
+find_package(OpenSSL REQUIRED)
 find_package(PostgreSQL REQUIRED)
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(PQXX REQUIRED libpqxx)
@@ -37,6 +39,9 @@ target_link_libraries(${PROJECT_NAME}
     ${Boost_LIBRARIES}
     ${PostgreSQL_LIBRARIES}
     ${PQXX_LIBRARIES}
+    OpenSSL::SSL
+    OpenSSL::Crypto
+    Boost::system
     ws2_32
     mswsock
 )

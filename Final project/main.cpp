@@ -6,7 +6,7 @@
 #include "DBcontrol.h"
 #include "IniParser.h"
 #include "Indexer.h"
-#include "HttpClient.h"
+#include "HttpsClient.h"
 #include "HttpServer.h"
 #include "ThreadPool.h"
 
@@ -35,9 +35,10 @@ int main(){
             "dbname=" + dbName + " "
             "user=" + dbUser + " "
             "password=" + dbPassword + " "
+            "sslmode=disable"
         };
 
-        Link startLink( {startPage, "/"}, 1 );
+        Link startLink( {startPage, "/wiki/Main_Page"}, 1 );
 
         DBcontrol db(connectionSetup);
         db.createTables();
@@ -45,7 +46,7 @@ int main(){
         threadPool.submit(startLink);
 
         HttpServer server(std::string("0.0.0.0"), std::string("8080"), DOC_ROOT, db);
-        server.execute();   
+        server.execute();
 
     }
     catch(const std::out_of_range& ex){

@@ -60,7 +60,11 @@ bool Indexer::isAllPagesIndexed() const{
 }
 
 
-Link Indexer::getLink(){     // добавить проверку на пустой вектор?
+Link Indexer::getLink(){
+    if (_links.empty()) {
+        throw std::runtime_error("Attempt to get link from empty list");
+    }
+    
     Link result = std::move(_links.back());
     _links.pop_back();
     return result;
@@ -75,10 +79,10 @@ void Indexer::extractLinks(){
     while (std::regex_search(searchStart, _html_page.cend(), match, href_regex)) {
         std::string url = match[1];
         // if (url[0] != '#'){
-        if (url.find("http://") == 0 || url.find("/") == 0){
+        if (url.find("http://") == 0 || url.find("https://") == 0 || url.find("/") == 0){
             if(!_safeSet.find(url)){
                 _safeSet.insert(url);
-                _links.emplace_back(splitURL(url), ++_currentRecursionDepth);
+                _links.emplace_back(splitURL(url), _currentRecursionDepth + 1);
             }
         }
         searchStart = match.suffix().first;
