@@ -21,7 +21,8 @@ int main(){
         IniParser parser("configurator.ini");
         auto startPage = parser.get_value<std::string>("Spider.start_page");
         size_t recursionDepth = parser.get_value<int>("Spider.recursion_depth");
-        auto serverPort = parser.get_value<int>("Server.port");
+
+        auto serverPort = parser.get_value<std::string>("Server.port");
 
         auto dbHost = parser.get_value<std::string>("DB.host");
         auto dbPort = parser.get_value<std::string>("DB.port");
@@ -38,14 +39,30 @@ int main(){
             "sslmode=disable"
         };
 
-        Link startLink( {startPage, "/"}, 1 );
+        std::pair<std::string, std::string> start_host_target =  [](const std::string& startPage){
+            std::string host{};
+            std::string target{};
+
+            size_t slash_pos = startPage.find('/');
+            if (slash_pos == std::string::npos) {
+                host = startPage;
+                target = "/";
+            } else {
+                host = startPage.substr(0, slash_pos);
+                target = startPage.substr(slash_pos);
+            }
+
+            return std::make_pair(host, target);
+        }(startPage);
+
+        Link startLink( start_host_target, 1 );
 
         DBcontrol db(dbConnectionSetup);
         db.createTables();
         ThreadPool threadPool(std::thread::hardware_concurrency() - 1, dbConnectionSetup, recursionDepth);
         threadPool.submit(startLink);
 
-        HttpServer server(std::string("0.0.0.0"), std::string("8080"), DOC_ROOT, db);
+        HttpServer server(std::string("0.0.0.0"), serverPort, DOC_ROOT, db);
         server.execute();
 
     }

@@ -54,7 +54,7 @@ void ThreadPool::work(){
         {   //////////////////////////////////////////////////////////////////////////// Удалить
             std::lock_guard<std::mutex> lock(_cout_mtx); 
             std::cout << "Start thread id: " << std::this_thread::get_id() << std::endl;
-            std::cout << "Working in thread id: " << std::this_thread::get_id() << ". " << std::endl;
+            std::cout << "Working in thread id: " << std::this_thread::get_id() << ". \n";
         }   ////////////////////////////////////////////////////////////////////////////
 
         

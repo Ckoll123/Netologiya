@@ -23,7 +23,7 @@ public:
 
 private:
     void extractLinks();
-    std::pair<std::string, std::string> splitURL(std::string url);
+    std::pair<std::string, std::string> splitURL(std::string& url);
     void cleanHtmlPage();
     void convertToLowerCase(std::string);
     void analizeWordsInPage(std::string);

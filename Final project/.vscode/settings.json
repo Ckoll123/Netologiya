@@ -101,7 +101,8 @@
         "valarray": "cpp",
         "variant": "cpp",
         "locale": "cpp",
-        "ciso646": "cpp"
+        "ciso646": "cpp",
+        "filesystem": "cpp"
     },
     "C_Cpp.default.compilerPath": "C:/msys64/ucrt64/bin/g++.exe"
 }

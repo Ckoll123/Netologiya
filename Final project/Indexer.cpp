@@ -90,7 +90,7 @@ void Indexer::extractLinks(){
 }
 
 
-std::pair<std::string, std::string> Indexer::splitURL(std::string url){
+std::pair<std::string, std::string> Indexer::splitURL(std::string& url){
     std::string host;
     std::string target;
 

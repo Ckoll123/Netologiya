@@ -20,7 +20,9 @@ configure_file(${CMAKE_SOURCE_DIR}/configurator.ini
                ${CMAKE_BINARY_DIR}/configurator.ini
                COPYONLY)
 
-# link_directories(C:/msys64/ucrt64/lib)
+configure_file(${CMAKE_SOURCE_DIR}/cacert.pem
+${CMAKE_BINARY_DIR}/cacert.pem
+COPYONLY)
 
 find_package(Boost REQUIRED COMPONENTS locale)
 find_package(OpenSSL REQUIRED)

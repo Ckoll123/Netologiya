@@ -12,6 +12,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <string>
+#include <filesystem>
 
 #include "Link.h"
 
@@ -31,12 +32,20 @@ public:
     std::pair<Link, std::string> returnDataForIndexer() const;
 
 private:
+    void setupTLS(ssl::stream<beast::tcp_stream>& stream);
+    void connect(ssl::stream<beast::tcp_stream>& stream);
+    void sendRequest(ssl::stream<beast::tcp_stream>& stream);
+    http::response<http::dynamic_body> readResponse(ssl::stream<beast::tcp_stream>& stream);
+    bool handleRedirect(const http::response<http::dynamic_body>& res, ssl::stream<beast::tcp_stream>& stream);
+    void processBody(const http::response<http::dynamic_body>& res);
+    void shutdown(ssl::stream<beast::tcp_stream>& stream);
+
+private:
     Link _link;
     std::string _port;
     int _httpVersion; 
     net::io_context _ioc;
     ssl::context _ctx;
     tcp::resolver _resolver;
-    ssl::stream<beast::tcp_stream> _stream;
     std::string _html_body;
 };
